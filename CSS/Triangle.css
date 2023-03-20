@@ -1,0 +1,119 @@
+@-webkit-keyframes showCell {
+    0% {
+      transform: scale(0.2) rotate(90deg);
+    }
+    33% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) rotate(0);
+      opacity: 1;
+    }
+  }
+  @keyframes showCell {
+    0% {
+      transform: scale(0.2) rotate(90deg);
+    }
+    33% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) rotate(0);
+      opacity: 1;
+    }
+  }
+  
+  /* #app {
+    padding: 5vmin;
+    text-align: center;
+  }
+  
+  input,
+  button {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: 1px solid transparent;
+    border-radius: 0.5vmin;
+  } */
+/*   
+  input {
+    background: rgba(255, 255, 255, 0.2);
+    width: 10vmin;
+    outline: none;
+    padding: 0.5vmin;
+    text-align: center;
+  }
+   */
+  /* button {
+    height: 100%;
+    width: 100%;
+    background: #000;
+    color: #ffffff;
+    padding: 0 2vmin;
+  } */
+  
+  /* form.triangle {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .input-field {
+    margin: 0 1vmin;
+  }
+  .input-field label {
+    display: block;
+    margin-bottom: 0.2vim;
+  }
+   */
+  #result {
+    margin-top: 6vmin;
+  }
+  #result .row,
+  #result .cell {
+    display: flex;
+  }
+  #result .row {
+    height: 7vmin;
+    justify-content: center;
+  }
+  #result .cell {
+    position: relative;
+    width: 7vmin;
+    height: 3.5vmin;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    margin-left: 1vmin;
+    margin-right: 1vmin;
+    transform: scale(0);
+    opacity: 0;
+  }
+  #result .cell > div span:nth-child(1), #result .cell > div span:nth-child(3) {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    border-width: 2.333331vmin;
+    border-style: solid;
+    border-left-color: transparent;
+    border-left-width: 3.4999965vmin;
+    border-right-color: transparent;
+    border-right-width: 3.4999965vmin;
+    width: 0;
+  }
+  #result .cell > div span:nth-child(1) {
+    border-top-color: transparent;
+    border-bottom-color: #ffffff;
+    bottom: 100%;
+  }
+  #result .cell > div span:nth-child(3) {
+    border-top-color: #ffffff;
+    border-bottom-color: transparent;
+    top: 100%;
+  }
+  #result .cell.animate {
+    -webkit-animation: showCell 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: showCell 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }

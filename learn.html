@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>B!NOMIAL</title>
+    <link rel="stylesheet" type="text/css" href="./CSS/CoinFlip.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/Triangle.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+
+<body class="mb-5">
+    <nav class="navbar sticky-top bg-dark mb-4" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">B!NOMIAL</a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="learn.html">Learn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="test.html">Test</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="expand.html">Expand</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container my-1">
+        <div class="p-3 rounded">
+
+            <p> Binomials can be a tricky topic. This page aims to help you with your understanding of binomials.</p>
+            <p> Before we begin, how would you rate your understanding of binomials so far? </p>
+            <!-- Mark
+            is there any chance you know how to do a wee scale thing you know like on insta stories -->
+
+
+            <h1>What is a Binomial?</h1>
+            <p>A binomial is an algebraic expression that contains two different terms connected by addition or subtraction.</p>
+            <!-- Mark - see image from google lol -->
+        </div>
+    </div>
+
+    <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded">
+            <p class="lead">Which of the following is a binomial expression?</p>
+            <!-- Mark, ideally these will be in line and they can just click the right one? The answer is the third one lol -->
+            \( 3x^2 \),  \( 2x^3 + 3y^5 - 1 \),  \( 4x + 7 \)
+            <!-- explanation: \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (This is called a monomial).
+            \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (This is an example of a trinomial).
+            \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition. -->
+        </div>
+    </div>
+
+    <div class="container my-1">
+        <div class="p-3 rounded">        
+            <h1>Bernoulli Distribution</h1>
+            <p class="lead">If I flip one coin, will it land on heads or tails? This is known as a Bernoulli
+                Distribution.</p>
+            <p> - An event that only has two possible outcomes, success or failure.</p>
+        </div>
+    </div>
+
+    <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded">
+            <p class="lead">Click the coin to see the two possible outcomes.</p>
+            <div class="coinGrid">
+                <div class="coinRow">
+                    <div class="coin dontCount heads" onclick="flipCoin(this)">
+                        <div class="front">Heads</div>
+                        <div class="back">Tails</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-1">
+        <div class="p-3 rounded">
+            <h1> Binomial Distribution </h1>
+            <p class="lead"> What if we have 2 coins? This becomes a binomial distribution - a frequency distribution of
+                the possible
+                number of successful outcomes
+                in a given number of trials, in each of which there is the same probability of success. </p>
+            
+        </div>
+    </div>
+
+    <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded">
+            <h3 class="lead">What are the possible outcomes when we flip 2 coins?</h3>
+                <p>Flip the coins until you have each of the four possible outcomes. </p> 
+            
+            <div class="coinGrid">
+                <div class="coinRow">
+                    <div class="coinLabel align-items-center d-flex justify-content-center"> 
+                        <p class="mt-3"> Outcome 1 </p>
+                    </div>
+                    <div class="coin heads" onclick="flipCoin(this)">
+                        <div class="front">Heads</div>
+                        <div class="back">Tails</div>
+                    </div>
+                    <div class="coin heads" onclick="flipCoin(this)">
+                        <div class="front">Heads</div>
+                        <div class="back">Tails</div>
+                    </div>
+                </div>
+                <div class="coinRow">
+                    <div class="coinLabel align-items-center d-flex justify-content-center"> 
+                        <p class="mt-3"> Outcome 2 </p>
+                    </div>
+                    <div class="coin heads" onclick="flipCoin(this)">
+                        <div class="front">Heads</div>
+                        <div class="back">Tails</div>
+                    </div>
+                    <div class="coin heads" onclick="flipCoin(this)">
+                        <div class="front">Heads</div>
+                        <div class="back">Tails</div>
+                    </div>
+                </div>
+                <div class="coinRow">
+                    <div class="coinLabel align-items-center d-flex justify-content-center"> 
+                        <p class="mt-3"> Outcome 3 </p>
+                    </div>
+                    <div class="coin heads" onclick="flipCoin(this)">
+                        <div class="front">Heads</div>
+                        <div class="back">Tails</div>
+                    </div>
+                    <div class="coin heads" onclick="flipCoin(this)">
+                        <div class="front">Heads</div>
+                        <div class="back">Tails</div>
+                    </div>
+                </div>
+                <div class="coinRow">
+                    <div class="coinLabel align-items-center d-flex justify-content-center"> 
+                        <p class="mt-3"> Outcome 4 </p>
+                    </div>
+                    <div class="coin heads" onclick="flipCoin(this)">
+                        <div class="front">Heads</div>
+                        <div class="back">Tails</div>
+                    </div>
+                    <div class="coin heads" onclick="flipCoin(this)">
+                        <div class="front">Heads</div>
+                        <div class="back">Tails</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert d-none" role="alert" id='coinPermutationsBanner'>
+            </div>
+
+            <div class="btn btn-lg btn-primary" role="button" onclick="verifyCoinGrid()">Submit</div>
+        </div>
+    </div>
+    
+    <div class="container my-1">
+        <div class="p-3 rounded">
+            <p class="lead">There are four possible outcomes. *********add stuff here********** </p>
+        </div>
+    </div>
+
+    <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded">
+            <p class="lead">How many ways can we get all heads? </p>
+            <form>
+                <div class="row g-3 mb-3 align-items-center">
+                    <div class="col-auto">
+                        <label for="inputCombination" class="col-form-label">Answer</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputCombination" class="form-control"
+                            aria-describedby="combinationHelpInline">
+                    </div>
+                </div>
+
+                <div class="alert d-none" role="alert" id='numWaysToAllHeadsBanner'>
+                </div>
+
+                <div class="btn btn-lg btn-primary" role="button" onclick="verifyWaysToGetAllHeads()">Submit</div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container my-1">
+        <div class="p-3 rounded">
+            <h1>Factorial!</h1>
+            <p>What is factorial? It is not just an enthusiastic number. Factorial (denoted "!") is the product
+                of an integer and all the integers below it. For example,</p>
+            \[ 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120. \] 
+            <p>And \(k\) = the number of desired outcomes (how many times we get heads). </p>
+            <p>Then we can say the number of ways to get all heads is “n choose k”. We write
+                <!-- \[\binom{n}{k}\]
+            </p>
+            <p> where </p> -->
+                \[\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\]
+            <p>These are the <b>coefficients</b> in a binomial expansion.</p>
+        </div>
+    </div>
+
+    <div class="container my-1">
+        <div class="p-3 rounded">
+            <p>This is easy to see with only two coins. However, what if we have 6 coins? Or 200? Let's investigate.
+            </p>
+            <p>Let \(n\) = the total number of events (coin tosses). </p>
+            <p>And \(k\) = the number of desired outcomes (how many times we get heads). </p>
+            <p>Then we can say the number of ways to get all heads is “n choose k”. We write
+                <!-- \[\binom{n}{k}\]
+            </p>
+            <p> where </p> -->
+                \[\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\]
+            <p>These are the <b>coefficients</b> in a binomial expansion.</p>
+        </div>
+    </div>
+
+    <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded">
+            <p class="lead">What are our values of \(n\) and \(k\) if we want to flip a coin six times and get heads four of those
+                times?</p>
+            <form>
+                <div class="row g-3 mb-3 align-items-center">
+                    <div class="col-auto">
+                        <label for="inputN" class="col-form-label">\(n = \)</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputN" class="form-control" aria-describedby="combinationHelpInline">
+                    </div>
+
+                    <div class="col-auto">
+                        <p for="inputK" class="col-form-label">\(k =\)</p>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputK" class="form-control" aria-describedby="combinationHelpInline">
+                    </div>
+
+                </div>
+
+                <div class="alert d-none" role="alert" id='nAndkBanner'>
+                    <p><span id="nkresult"> </span> We need the number of times we want to get heads,
+                        so we have \(k=4\). The number of events is the total number of coin tosses, giving us \(n=6\).
+                        Therefore, there are \(\binom{6}{4} = 15 \) ways to get four heads from six coin tosses.</p>
+                </div>
+
+                <div class="btn btn-lg btn-primary" role="button" onclick="verifyNandK()">Submit</div>
+            </form>
+
+            <!-- <div class="">
+                <p>We need the number of times we want to get heads (heads in the first toss and heads in the second
+                    toss),
+                    so we have \(k=2\). The number of events is the total number of coin tosses, giving us \(n=2\).
+                    Therefore, there is \(\binom{2}{2} = 1 \) way to get all heads from two coin tosses.</p>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="container my-1">
+        <div class="p-3 rounded">
+            <p class="lead"> We have seen how the binomial coefficients can be calculated and what they represent.
+                These coefficients can be represented in Pascal's triangle. </p>
+
+            <h1>Pascal's Triangle</h1>
+
+            <div class="container p-5 rounded bg-dark">
+                <form id="triangle">
+
+                    <!-- <form> -->
+                    <div class="row g-3 mb-3 align-items-center d-flex justify-content-center text-bg-dark">
+                        <!-- <div class="col-auto">
+                            <label for="powerInput" class="col-form-label">(1+x)n</label>
+                        </div> -->
+                        <div class="col-auto d-none">
+                            <input type="number" step="0.1" value="1" id="powerInput" />
+                        </div>
+
+                        <div class="col-auto">
+                            <p for="totalInput" class="col-form-label">No. Rows</p>
+                        </div>
+                        <div class="col-auto">
+                            <input type="number" min="1" max="10" step="1" value="5" id="totalInput" />
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn btn-lg btn-primary" role="button" id="calculate">Go</div>
+                        </div>
+                    </div>
+
+                    <!-- </form>
+
+                    <div class="input-field">
+                        <label for="powerInput">(1+x)n</label>
+                        <input type="number" step="0.1" value="1" id="powerInput" />
+                    </div>
+                    <div class="input-field">
+                        <label>No. Rows</label>
+                        <input type="number" min="1" max="10" step="1" value="5" id="totalInput" />
+                    </div>
+                    <div class="input-field">
+                        <button class="btn btn-lg btn-primary" id="calculate">Go</button>
+                    </div> -->
+                </form>
+                <div id="result"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded">
+            <p class="lead">Can you spot any patterns in the triangle?</p>
+        </div>
+    </div>
+
+    <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded">
+            <p class="lead">What are these actually the coefficients of?</p>
+        </div>
+    </div>
+
+    <div class="container my-1">
+        <div class="p-3 rounded">
+            <h1> Binomial Theorem</h1>
+            <p class="lead"> The Binomial theorem is given by</p>
+            \[(x+a)^n = \sum_{k=0}^n \binom{n}{k}x^k a^{n-k},\]
+            <p> where \(n\) = the number of trials </p>
+                    <p>\(k\) = the number of successes  </p>
+                    <p>\(x\) = the probability of success on a single trial  </p>
+                    <p>\(a\) = the probability of failure on a single trial  </p>
+        </div>
+    </div>
+
+    <script src="./JS/Triangle.js"></script>
+    <script src="./JS/LearnQuestions.js"></script>
+    <script src="./JS/CoinFlip.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
