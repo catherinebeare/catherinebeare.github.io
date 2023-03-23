@@ -5,11 +5,26 @@ function verifyWaysToGetAllHeads() {
     console.log(waysToGetAllHeadsInput.value)
     const isValid = waysToGetAllHeadsInput.value == 1
     const bannerType = isValid ? "alert-success" : "alert-danger"
-    const bannerText = isValid ? "Correct" : "Not quite"
+    const bannerText = isValid ? "Correct!" : "Not quite!"
 
     numWaysToAllHeadsBanner.classList.remove(...numWaysToAllHeadsBanner.classList);
     numWaysToAllHeadsBanner.classList.add("alert", bannerType);
-    numWaysToAllHeadsBanner.innerHTML = `${bannerText}, answer`;
+    numWaysToAllHeadsBanner.innerHTML = `${bannerText} There is only one way to get all heads: heads in the first toss and heads in the second toss.`;
+}
+
+const factorialInput = document.getElementById('factorialInput');
+const factorialBanner = document.getElementById('factorialBanner');
+const factorialResult = document.getElementById('factorialResult')
+
+function verifyFactorial() {
+    console.log(factorialInput.value)
+    const isValid = factorialInput.value == 24
+    const bannerType = isValid ? "alert-success" : "alert-danger"
+    const bannerText = isValid ? "Correct!" : "Not quite!"
+
+    factorialBanner.classList.remove(...factorialBanner.classList);
+    factorialBanner.classList.add("alert", bannerType);
+    factorialResult.innerText = bannerText;
 }
 
 const nInput = document.getElementById('inputN');
@@ -30,6 +45,18 @@ function verifyNandK() {
     nAndKResult.innerText = bannerText;
 }
 
+const monomialExpressInput = document.getElementById('monomialInput');
+const trinomialExpressInput = document.getElementById('trinomialInput');
+const binomialExpressInput = document.getElementById('binomialInput');
+const binomialExpressionBanner = document.getElementById('binomialExpressionBanner');
+const binomialExpressionResult = document.getElementById('binomialExpressionResult');
+
 function verifyBinomial() {
-    // Mark please help
+    const isValid = binomialExpressInput.checked === true;
+    const bannerType = isValid ? "alert-success" : "alert-danger"
+    const bannerText = isValid ? "Correct!" : "Not quite!"
+
+    binomialExpressionBanner.classList.remove(...binomialExpressionBanner.classList);
+    binomialExpressionBanner.classList.add("alert", bannerType);
+    binomialExpressionResult.innerText = bannerText; 
 }

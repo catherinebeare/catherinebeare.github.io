@@ -8,8 +8,8 @@ let cards = [
        back: "A binomial is an algebraic expression that contains two different terms connected by addition or subtraction."
     },
     {
-      front: "",
-      back: ""
+      front: "Define the term Bernoulli Distribution.",
+      back: "An event that only has two possible outcomes, success or failure."
     },
     {
         front: "",

@@ -41,30 +41,12 @@
     backface-visibility: hidden;
     transition: 2s;
     text-align: center;
-    background-color: #fafafa;
+    background-color: #f8fd89;
+    
   }
   
   .activeCard {
     transform: rotateX(180deg);
   }
-  .prev,
-  .next {
-    width: 100px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 10px;
-    margin: 30px;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    color: #222;
-    background-color: #eee;
-    font-size: 14px;
-    font-weight: bold;
-    transition: .2s;
-  }
+
   
-  .prev:hover, .next:hover{
-    background-color: #ccc;
-    border-color: #ccc;
-  }

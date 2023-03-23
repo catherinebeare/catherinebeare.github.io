@@ -1,17 +1,3 @@
-// Questions and answers
-// const questions = [
-// 	{ question: 'What is the binomial expansion of \\begin\{(a + b)^2\}\\end?', answer: 'a^2 + 2ab + b^2' },
-// 	{ question: 'What is the binomial expansion of (x + 4)^7?', answer: 'a^2 - 2ab + b^2' },
-// 	{ question: 'What is the binomial expansion of (a + b)^3?', answer: 'a^3 + 3a^2b + 3ab^2 + b^3' },
-// 	{ question: 'What is the binomial expansion of (a - b)^3?', answer: 'a^3 - 3a^2b + 3ab^2 - b^3' },
-// 	{ question: 'What is the binomial expansion of (a + b)^4?', answer: 'a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4' },
-// 	{ question: 'What is the binomial expansion of (a - b)^4?', answer: 'a^4 - 4a^3b + 6a^2b^2 - 4ab^3 + b^4' },
-// 	{ question: 'What is the binomial expansion of (a + b)^5?', answer: 'a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5' },
-// 	{ question: 'What is the binomial expansion of (a - b)^5?', answer: 'a^5 - 5a^4b + 10a^3b^2 - 10a^2b^3 + 5ab^4 - b^5' },
-// 	{ question: 'What is the binomial expansion of (a + b)^6?', answer: 'a^6 + 6a^5b + 15a^4b^2 + 20a^3b^3 + 15a^2b^4 + 6ab^5 + b^6' },
-// 	{ question: 'What is the binomial expansion of (a - b)^6?', answer: 'a^6 - 6a^5b + 15a^4b^2 - 20a^3b^3 + 15a^2b^4 - 6ab^5 + b^6' }
-// ];
-
 // Selecting DOM elements
 const questionEl = document.getElementById('question');
 const answerEl = document.getElementById('answer');

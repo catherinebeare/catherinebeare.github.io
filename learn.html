@@ -47,28 +47,71 @@
     <div class="container my-1">
         <div class="p-3 rounded">
 
-            <p> Binomials can be a tricky topic. This page aims to help you with your understanding of binomials.</p>
-            <p> Before we begin, how would you rate your understanding of binomials so far? </p>
-            <!-- Mark
-            is there any chance you know how to do a wee scale thing you know like on insta stories -->
-
-
+            <p> Binomials can be a tricky topic. Binomials are a fundamental topic in many pure mathematics topics. 
+                This page aims to help you with your understanding of binomials. </p>
             <h1>What is a Binomial?</h1>
-            <p>A binomial is an algebraic expression that contains two different terms connected by addition or subtraction.</p>
-            <!-- Mark - see image from google lol -->
+            <p>A binomial is an algebraic expression that contains <b>two</b> different terms <b>connected by addition or subtraction</b>.</p>
+            <!-- see image from google -->
         </div>
     </div>
 
     <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded">
             <p class="lead">Which of the following is a binomial expression?</p>
-            <!-- Mark, ideally these will be in line and they can just click the right one? The answer is the third one lol -->
-            \( 3x^2 \),  \( 2x^3 + 3y^5 - 1 \),  \( 4x + 7 \)
-            <!-- explanation: \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (This is called a monomial).
-            \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (This is an example of a trinomial).
-            \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition. -->
+            <form>
+                <div class="row g-3 mb-3 align-items-center">
+                    <!-- <div class="col-auto">
+                        <label for="inputBinomialExpression" class="col-form-label">Answer</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputBinomialExpression" class="form-control"
+                            aria-describedby="combinationHelpInline">
+                    </div> -->
+
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" name="whichBinomial" type="radio" id="monomialInput" value="option1">
+                        <label class="form-check-label" for="monomialInput">
+                            \( 3x^2 \)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" name="whichBinomial" type="radio" id="trinomialInput" value="option2">
+                        <label class="form-check-label" for="trinomialInput">
+                            \( 2x^3 + 3y^5 - 1 \)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" name="whichBinomial" type="radio" id="binomialInput" value="option3">
+                        <label class="form-check-label" for="binomialInput">
+                            \( 4x + 7 \)
+                        </label>
+                      </div>
+                </form>
+
+                </div>
+
+                <div class="alert d-none" role="alert" id='binomialExpressionBanner'>
+                    <p><span id="binomialExpressionResult"> </span> \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (This is called a monomial).
+                        \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (This is an example of a trinomial).
+                        \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition.</p>
+                </div>
+                
+                <div class="btn btn-lg btn-primary" role="button" onclick="verifyBinomial()">Submit</div>
+            </form>
         </div>
     </div>
+    
+    <!-- <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded">
+            <p class="lead">Which of the following is a binomial expression?</p>
+            Mark, ideally these will be in line and they can just click the right one? The answer is the third one lol
+            \( 3x^2 \),  \( 2x^3 + 3y^5 - 1 \),  \( 4x + 7 \)
+            explanation: \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (This is called a monomial).
+            \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (This is an example of a trinomial).
+            \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition.
+        </div>
+    </div> -->
 
     <div class="container my-1">
         <div class="p-3 rounded">        
@@ -173,11 +216,19 @@
     
     <div class="container my-1">
         <div class="p-3 rounded">
-            <p class="lead">There are four possible outcomes. *********add stuff here********** </p>
+            <p>There are four possible outcomes. For the example above, we are concerned with the order of the outcomes (this is called a <b> permutation</b>). 
+                However, for a binomial coefficient, we do not care about the order, we only care about the <b>combination</b> of outcomes.
+                For example, if I want the number of ways to get heads once and tails once, my number of desired outcomes is 2
+                (heads then tails, or tails then heads). For more information on combinations and permutations, click 
+                <a href="expand.html">here.</a>
+                It is easy to list all possible outcomes when we only have two coins.
+                However, what if we have 6 coins? Or 200? Let's investigate. First, we need to understand some notation.
+            </p>
         </div>
     </div>
 
-    <div class="container my-1 px-5">
+    <!-- HOW MANY WAYS TO GET ALL HEADS -->
+    <!-- <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded">
             <p class="lead">How many ways can we get all heads? </p>
             <form>
@@ -197,42 +248,54 @@
                 <div class="btn btn-lg btn-primary" role="button" onclick="verifyWaysToGetAllHeads()">Submit</div>
             </form>
         </div>
-    </div>
+    </div> -->
 
     <div class="container my-1">
         <div class="p-3 rounded">
             <h1>Factorial!</h1>
-            <p>What is factorial? It is not just an enthusiastic number. Factorial (denoted "!") is the product
+            <p>What is factorial? Factorial (denoted "!") is the product
                 of an integer and all the integers below it. For example,</p>
-            \[ 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120. \] 
-            <p>And \(k\) = the number of desired outcomes (how many times we get heads). </p>
-            <p>Then we can say the number of ways to get all heads is “n choose k”. We write
-                <!-- \[\binom{n}{k}\]
-            </p>
-            <p> where </p> -->
-                \[\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\]
-            <p>These are the <b>coefficients</b> in a binomial expansion.</p>
+            \[ 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120 \] 
+        </div>
+    </div>
+
+    <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded">
+            <p class="lead">What is the value of 4!? </p>
+            <form>
+                <div class="row g-3 mb-3 align-items-center">
+                    <div class="col-auto">
+                        <label for="factorialInput" class="col-form-label">Answer</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="factorialInput" class="form-control"
+                            aria-describedby="combinationHelpInline">
+                    </div>
+                </div>
+
+                <div class="alert d-none" role="alert" id='factorialBanner'>
+                    <p><span id="factorialResult"> </span> \(4! = 4 \times 3 \times 2 \times 1 = 24.\)  </p>
+                </div>
+
+                <div class="btn btn-lg btn-primary" role="button" onclick="verifyFactorial()">Submit</div>
+            </form>
         </div>
     </div>
 
     <div class="container my-1">
         <div class="p-3 rounded">
-            <p>This is easy to see with only two coins. However, what if we have 6 coins? Or 200? Let's investigate.
-            </p>
-            <p>Let \(n\) = the total number of events (coin tosses). </p>
-            <p>And \(k\) = the number of desired outcomes (how many times we get heads). </p>
-            <p>Then we can say the number of ways to get all heads is “n choose k”. We write
-                <!-- \[\binom{n}{k}\]
-            </p>
-            <p> where </p> -->
+            <p>Now, let \(n\) = the total number of events  </p>
+            <p>and \(k\) = the number of desired outcomes. </p>
+            <p>Then we can say the number of ways to get a specific outcome is “n choose k”. We write
                 \[\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\]
+                These values can be calculated using the "\(nCr\)" button on your calulator.
             <p>These are the <b>coefficients</b> in a binomial expansion.</p>
         </div>
     </div>
 
     <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded">
-            <p class="lead">What are our values of \(n\) and \(k\) if we want to flip a coin six times and get heads four of those
+            <p class="lead">What are the values of \(n\) and \(k\) if we want to flip a coin six times and get heads four of those
                 times?</p>
             <form>
                 <div class="row g-3 mb-3 align-items-center">
@@ -253,7 +316,7 @@
                 </div>
 
                 <div class="alert d-none" role="alert" id='nAndkBanner'>
-                    <p><span id="nkresult"> </span> We need the number of times we want to get heads,
+                    <p><span id="nkresult"> </span> We need the number of times we want to get heads (our specific outcome),
                         so we have \(k=4\). The number of events is the total number of coin tosses, giving us \(n=6\).
                         Therefore, there are \(\binom{6}{4} = 15 \) ways to get four heads from six coin tosses.</p>
                 </div>
@@ -272,7 +335,8 @@
 
     <div class="container my-1">
         <div class="p-3 rounded">
-            <p class="lead"> We have seen how the binomial coefficients can be calculated and what they represent.
+            <p class="lead"> We have now seen how to calculate binomial coefficients
+                We have seen how the binomial coefficients can be calculated and what they represent.
                 These coefficients can be represented in Pascal's triangle. </p>
 
             <h1>Pascal's Triangle</h1>
