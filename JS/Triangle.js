@@ -1,14 +1,9 @@
 let powerEl, inputEl, resultEl;
+const multiplesOf2 = document.getElementById('times2');
+const multiplesOf3 = document.getElementById('times3');
+const multiplesOf4 = document.getElementById('times4');
+const multiplesOf5 = document.getElementById('times5');
 
-/**
- * The term debounce comes from old electronics. When you press a button, 
- * (like on a remote control) it "bounces" registering multiple clicks.
- * In programming, we assume the user will do things quickly... so we wait
- * for them to finish before firing out the function.
- *
- * @param {Function} callback
- * @param {Number} timeout
- */
 const debounce = (callback, timeout = 300) => {
   let timer;
   return (...args) => {
@@ -17,18 +12,6 @@ const debounce = (callback, timeout = 300) => {
   };
 };
 
-/**
- * Creates a specific row in pascals triangle
- *
- * @parm {Number} n
- * @param {Number} p
- *
- *      n(n - 1)    n(n - 1)(n - 2)   n(n - 1)(n - 2)(n- 3)
- * 1,n ----------, ----------------, ----------------------, ...
- *          2             2 * 3              2 * 3 * 4
- *
- *
- */
 const createPascalRow = (n, p) => {
   const row = [];
   while (row.length <= n) {
@@ -40,25 +23,14 @@ const createPascalRow = (n, p) => {
   return row;
 };
 
-/**
- * Creates pascal's triangle as an two dimensional array, loops through it
- * to create elements, add them to the dom and animate them after a certain
- * interval between each.
- */
-const createPascalsTriangle = (totalRows, power) => {
+const createPascalsTriangle = (totalRows, power, multiple) => {
   console.log(totalRows, power)
 
-  // Create an array representation of the triangle.
-  // First we create an empty array, fill it with
-  // zeroes then fill each row with an array representation
-  // of the row using the createPascalRow function above
-  //
-  const triangle = new Array(parseInt(totalRows, 0)).fill(0).map((r, i) => createPascalRow(i, power));
+
+  const triangle = new Array(parseInt(totalRows, 0)+1).fill(0).map((r, i) => createPascalRow(i, power));
 
   console.log(resultEl)
-  // Clear out the result div element to get it
-  // ready to add new elements
-  //
+
   resultEl.innerHTML = '';
 
   triangle.forEach(cells => {
@@ -71,6 +43,12 @@ const createPascalsTriangle = (totalRows, power) => {
 
       cellEl.classList.add('cell');
       cellEl.classList.add(`cell-${isOdd ? 'odd' : 'even'}`);
+      if (multiple != null) {
+        const isMultiple = cell % multiple == 0;
+        cellEl.classList.add(`cell-${isMultiple ? mapValueToColor(multiple) : 'white'}`);
+      } else {
+        cellEl.classList.add(`cell-white`);
+      }
       cellEl.innerHTML = `<div><span></span><span>${parseFloat(cell.toFixed(1)).toString()}</span><span></span></div>`;
 
       rowEl.appendChild(cellEl);
@@ -79,20 +57,48 @@ const createPascalsTriangle = (totalRows, power) => {
     resultEl.appendChild(rowEl);
   });
 
-  // Now we animate them!
   Array.from(document.querySelectorAll('.cell')).
   forEach((el, i) => {
     setTimeout(() => {el.classList.add('animate');}, i * 100);
   });
 };
 
+function getCheckedValue() {
+  if (multiplesOf2.checked) {
+    return 2;
+  } else if (multiplesOf3.checked) {
+    return 3;
+  } else if (multiplesOf4.checked) {
+    return 4;
+  } else if (multiplesOf5.checked) {
+    return 5;
+  }
+    return null
+}
+
+function mapValueToColor(value) {
+  switch(value) {
+    case 2:
+      return "purple";
+    case 3:
+      return "green";
+    case 4:
+      return "pink";
+    case 5:
+      return "blue";
+    default:
+      return null;
+  }
+}
+
 const init = () => { 
   console.log("init")
   powerEl = document.getElementById('powerInput');
   inputEl = document.getElementById('totalInput');
+  multipleVal = getCheckedValue();
   resultEl = document.getElementById('result');
-
-  const go = debounce(() => createPascalsTriangle(inputEl.value, parseFloat(powerEl.value)));
+  console.log(`multiple ${multipleVal}`);
+  const go = debounce(() => createPascalsTriangle(inputEl.value, parseFloat(powerEl.value), getCheckedValue()));
 
   inputEl.addEventListener('change', go);
   document.getElementById('calculate').addEventListener('click', e => {

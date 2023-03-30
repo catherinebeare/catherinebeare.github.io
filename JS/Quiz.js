@@ -2,10 +2,12 @@
 const questionEl = document.getElementById('question');
 const answerEl = document.getElementById('answer');
 const submitBtn = document.getElementById('submit');
+const restartBtn = document.getElementById('restart');
 const resultEl = document.getElementById('result');
-// const restartBtn = document.getElementById('restart');
 const timeElapsedEl = document.getElementById('time-elapsed');
 const questionsAnsweredEl = document.getElementById('questions-answered');
+const quizContainerEl = document.getElementById('quizContainer');
+const resultsContainerEl = document.getElementById('results');
 
 // Initializing variables
 let currentQuestionIndex = 0;
@@ -14,6 +16,7 @@ let timeElapsed = 0;
 let timerId;
 let questionCount = 10;
 let questionList = [];
+let runningResult = [];
 
 // Function to display the current question
 function displayQuestion() {
@@ -33,8 +36,19 @@ function checkAnswer(event) {
     if (userAnswer === correctAnswer) {
         score += 1;
     }
-	answerEl.value = '';
+	
+  runningResult.push(
+    {
+      question: questionList[currentQuestionIndex],
+      userAnswer: userAnswer,
+      isCorrect: userAnswer === correctAnswer
+    }
+  );
+  
+  console.log(runningResult);
+  answerEl.value = '';
 	currentQuestionIndex++;
+
 	if (currentQuestionIndex === questionList.length) {
     clearInterval(timerId);
     timeElapsedEl.textContent = formatTime(timeElapsed);
@@ -46,6 +60,10 @@ function checkAnswer(event) {
     resultEl.classList.add("alert", bannerType);
     resultEl.textContent = `You scored ${score} out of ${questionList.length}`;
     submitBtn.innerText = "Restart"
+    // quizContainerEl.classList.remove(...quizContainerEl.classList);
+    quizContainerEl.classList.add('d-none');
+    resultsContainerEl.classList.remove(...resultsContainerEl.classList);
+    buildQuizResults();
     currentQuestionIndex++;
     } else {
         
@@ -60,6 +78,46 @@ function formatTime(seconds) {
     return `Time elapsed: ${formattedTime}`;
   }
     
+
+
+function buildQuizResults() {
+  let quizResultsHTML = "";
+  for (let i = 0; i < runningResult.length; i++) {
+    let current = `Q${(i+1)}. `
+    let result = runningResult[i];
+    let questionHTML = `<h5>${current}${processString(decorateTerm(result.question.term))}</h4>`;
+    let userAnswerHTML = `<p>Your answer: ${result.userAnswer}</p>`;
+    let correctAnswerHTML = `<p>Correct answer: ${result.question.answer}</p>`;
+    let alertClass = result.isCorrect ? "alert-success" : "alert-danger";
+    let isCorrectHTML = `<div class="alert ${alertClass} mt-3" role="alert">${userAnswerHTML}${correctAnswerHTML}</div>`;
+    let resultHTML = `<div class="text-bg-light p-5 rounded questionBoxes my-3">${questionHTML}${isCorrectHTML}</div>`;
+    quizResultsHTML += resultHTML;
+  }
+  document.getElementById("quiz-results").innerHTML = quizResultsHTML;
+}
+
+function printResults() {
+	let originalContents = document.body.innerHTML;
+  removeQuestionBoxesFromClassList(document.getElementById("quiz-results"));
+  let printContents = document.getElementById("quiz-results").innerHTML;
+  
+
+	document.body.innerHTML = printContents;
+	window.print();
+	document.body.innerHTML = originalContents;
+}
+
+function removeQuestionBoxesFromClassList(doc) {
+  const questionBoxesElements = doc.querySelectorAll('div.questionBoxes');
+  console.log(questionBoxesElements);
+  for (let i = 0; i < questionBoxesElements.length; i++) {
+    const element = questionBoxesElements[i];
+    element.classList.remove('questionBoxes', 'p-5');
+    // element.classList.remove('questionBoxes', 'my-3', 'p-5');
+    element.classList.add('p-4', 'my-3') 
+  }
+}
+
 // Function to restart the game
 function restartGame() {
     console.log("restarting")
@@ -69,7 +127,14 @@ function restartGame() {
     resultEl.textContent = '';
     resultEl.classList.remove(...resultEl.classList);
     resultEl.classList.add("d-none");
+    resultsContainerEl.classList.remove(...resultsContainerEl.classList);
+    resultsContainerEl.classList.add("d-none");
+    quizContainerEl.classList.remove("d-none");
+    // quizContainerEl.classList.add("d-none");
+    document.getElementById("quiz-results").innerHTML = "";
     submitBtn.innerText = "Submit"
+    questionList = [];
+    runningResult = [];
     generateQuiz();
     displayQuestion();
     startTimer();
@@ -85,6 +150,7 @@ function startTimer() {
     
 // Adding event listeners
 submitBtn.addEventListener('click', checkAnswer);
+restartBtn.addEventListener('click', restartGame);
 
 function processString(inputString) {
     const startFlag = "\\begin";

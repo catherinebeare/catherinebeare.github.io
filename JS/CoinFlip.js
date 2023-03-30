@@ -1,6 +1,6 @@
 const validCoinPermutations = [["heads", "heads"], ["heads", "tails"],["tails", "heads"], ["tails", "tails"]];
 const coinPermutationBanner = document.getElementById('coinPermutationsBanner');
-
+const coinPermutationResult = document.getElementById('permutationResult')
 function flipCoin(coin) {
     if (!coin.classList.contains("dontCount")) {
         coinPermutationBanner.classList.remove(...coinPermutationBanner.classList);
@@ -29,11 +29,11 @@ function flipCoin(coin) {
     const state = getState();
     const isValid = arraysAreEqual(validCoinPermutations, state);
     const bannerType = isValid ? "alert-success" : "alert-danger"
-    const bannerText = isValid ? "Correct" : "Wrong"
+    const bannerText = isValid ? "Correct!" : "Not Quite!"
 
     coinPermutationBanner.classList.remove(...coinPermutationBanner.classList);
     coinPermutationBanner.classList.add("alert", bannerType);
-    coinPermutationBanner.innerText = bannerText
+    coinPermutationResult.innerText = bannerText
   }
   
   function getState() {

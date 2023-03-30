@@ -29,16 +29,18 @@ function verifyFactorial() {
 
 const nInput = document.getElementById('inputN');
 const kInput = document.getElementById('inputK');
+const noOfWaysInput = document.getElementById('inputNoOfWays');
 const nAndKBanner = document.getElementById('nAndkBanner');
 const nAndKResult = document.getElementById('nkresult');
 
 function verifyNandK() {
     const n = nInput.value
     const k = kInput.value
+    const ans = noOfWaysInput.value
 
-    const isValid = n == 6 && k == 4
+    const isValid = n == 6 && k == 4 && ans == 15
     const bannerType = isValid ? "alert-success" : "alert-danger"
-    const bannerText = isValid ? "Correct" : "Not quite!"
+    const bannerText = isValid ? "Correct!" : "Not quite!"
 
     nAndKBanner.classList.remove(...nAndKBanner.classList);
     nAndKBanner.classList.add("alert", bannerType);
@@ -60,3 +62,20 @@ function verifyBinomial() {
     binomialExpressionBanner.classList.add("alert", bannerType);
     binomialExpressionResult.innerText = bannerText; 
 }
+
+// const multiplesOf2 = document.getElementById('times2');
+// const multiplesOf3 = document.getElementById('times3');
+// const multiplesOf4 = document.getElementById('times4');
+// const multiplesOf5 = document.getElementById('times5');
+// const multiplesBanner = document.getElementById('multiplesBanner');
+// const multiplesResult = document.getElementById('multiplesResult');
+
+// function triangleMultiples() {
+//     const isValid = binomialExpressInput.checked === true;
+//     const bannerType = isValid ? "alert-success" : "alert-danger"
+//     const bannerText = isValid ? "Correct!" : "Not quite!"
+
+//     multiplesBanner.classList.remove(...multiplesBanner.classList);
+//     multiplesBanner.classList.add("alert", bannerType);
+//     binomialExpressionResult.innerText = bannerText; 
+// }

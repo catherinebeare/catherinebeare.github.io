@@ -7,6 +7,7 @@
     <title>B!NOMIAL</title>
     <link rel="stylesheet" type="text/css" href="./CSS/CoinFlip.css">
     <link rel="stylesheet" type="text/css" href="./CSS/Triangle.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/Learn.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -49,14 +50,13 @@
 
             <p> Binomials can be a tricky topic. Binomials are a fundamental topic in many pure mathematics topics. 
                 This page aims to help you with your understanding of binomials. </p>
-            <h1>What is a Binomial?</h1>
+            <h2>What is a Binomial?</h2>
             <p>A binomial is an algebraic expression that contains <b>two</b> different terms <b>connected by addition or subtraction</b>.</p>
-            <!-- see image from google -->
         </div>
     </div>
 
     <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded">
+        <div class="text-bg-light p-5 rounded questionBoxes">
             <p class="lead">Which of the following is a binomial expression?</p>
             <form>
                 <div class="row g-3 mb-3 align-items-center">
@@ -92,8 +92,8 @@
                 </div>
 
                 <div class="alert d-none" role="alert" id='binomialExpressionBanner'>
-                    <p><span id="binomialExpressionResult"> </span> \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (This is called a monomial).
-                        \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (This is an example of a trinomial).
+                    <p><span id="binomialExpressionResult"> </span> \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (this is called a monomial).
+                        \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (this is an example of a trinomial).
                         \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition.</p>
                 </div>
                 
@@ -115,15 +115,15 @@
 
     <div class="container my-1">
         <div class="p-3 rounded">        
-            <h1>Bernoulli Distribution</h1>
-            <p class="lead">If I flip one coin, will it land on heads or tails? This is known as a Bernoulli
+            <h2>Bernoulli Distribution</h2>
+            <p>If I flip one coin, will it land on heads or tails? This is known as a Bernoulli
                 Distribution.</p>
             <p> - An event that only has two possible outcomes, success or failure.</p>
         </div>
     </div>
 
     <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded">
+        <div class="text-bg-light p-5 rounded questionBoxes">
             <p class="lead">Click the coin to see the two possible outcomes.</p>
             <div class="coinGrid">
                 <div class="coinRow">
@@ -138,8 +138,8 @@
 
     <div class="container my-1">
         <div class="p-3 rounded">
-            <h1> Binomial Distribution </h1>
-            <p class="lead"> What if we have 2 coins? This becomes a binomial distribution - a frequency distribution of
+            <h2> Binomial Distribution </h2>
+            <p> What if we have 2 coins? This becomes a binomial distribution - a frequency distribution of
                 the possible
                 number of successful outcomes
                 in a given number of trials, in each of which there is the same probability of success. </p>
@@ -148,7 +148,7 @@
     </div>
 
     <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded">
+        <div class="text-bg-light p-5 rounded questionBoxes">
             <h3 class="lead">What are the possible outcomes when we flip 2 coins?</h3>
                 <p>Flip the coins until you have each of the four possible outcomes. </p> 
             
@@ -208,6 +208,11 @@
             </div>
 
             <div class="alert d-none" role="alert" id='coinPermutationsBanner'>
+                <p><span id="permutationResult"> </span> The possible combinations are heads and heads,
+                heads and tails, tails and heads, and tails and tails. We can arrange these pairs in any order, as long as each pair is represented once.
+                <!-- The order of the outcomes does not matter, however the order within each outcome
+                does matter. We can acheive these results in any order. -->
+                </p>
             </div>
 
             <div class="btn btn-lg btn-primary" role="button" onclick="verifyCoinGrid()">Submit</div>
@@ -216,7 +221,8 @@
     
     <div class="container my-1">
         <div class="p-3 rounded">
-            <p>There are four possible outcomes. For the example above, we are concerned with the order of the outcomes (this is called a <b> permutation</b>). 
+            <p>There are four possible outcomes. For the example above, we are concerned with the order of the outcomes (this is called a <b> permutation</b>).
+                This means getting heads then tails is different from getting tails then heads. 
                 However, for a binomial coefficient, we do not care about the order, we only care about the <b>combination</b> of outcomes.
                 For example, if I want the number of ways to get heads once and tails once, my number of desired outcomes is 2
                 (heads then tails, or tails then heads). For more information on combinations and permutations, click 
@@ -252,15 +258,16 @@
 
     <div class="container my-1">
         <div class="p-3 rounded">
-            <h1>Factorial!</h1>
+            <h2>Factorial!</h2>
             <p>What is factorial? Factorial (denoted "!") is the product
                 of an integer and all the integers below it. For example,</p>
             \[ 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120 \] 
+            <p> Note: by definition, \(0! = 1 \).</p>
         </div>
     </div>
 
     <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded">
+        <div class="text-bg-light p-5 rounded questionBoxes">
             <p class="lead">What is the value of 4!? </p>
             <form>
                 <div class="row g-3 mb-3 align-items-center">
@@ -284,18 +291,37 @@
 
     <div class="container my-1">
         <div class="p-3 rounded">
-            <p>Now, let \(n\) = the total number of events  </p>
-            <p>and \(k\) = the number of desired outcomes. </p>
+            <p> Due to the nature of factorials, we can often cancel before dividing. For example, </p>
+            <div> \[ \begin{aligned}
+                \frac{7!}{4!}
+            
+                &= \frac{7 \times 6 \times 5 \times \cancel{4 \times 3 \times 2 \times 1}}{\cancel{4 \times 3 \times 2 \times 1}} \\
+                &= 7 \times 6 \times 5 \\
+                &= 210 \\
+                \end{aligned} \]
+            </div>
+            <p> We will see this cancelling in action when we look at combinatorial notation. </p>
+        </div>
+    </div>
+
+    <div class="container my-1">
+        <div class="p-3 rounded">
+            <div> \( \begin{aligned} \text{Now, let } n &= \text{the total number of events}  \\
+            \text{and } k &= \text{the number of desired outcomes.} \\
+            \end{aligned}
+            \)
+            </div>
+        
             <p>Then we can say the number of ways to get a specific outcome is “n choose k”. We write
                 \[\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\]
-                These values can be calculated using the "\(nCr\)" button on your calulator.
+                These values can be calculated using the "\(^nC_r\)" (combinatorial) button on your calulator.
             <p>These are the <b>coefficients</b> in a binomial expansion.</p>
         </div>
     </div>
 
     <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded">
-            <p class="lead">What are the values of \(n\) and \(k\) if we want to flip a coin six times and get heads four of those
+        <div class="text-bg-light p-5 rounded questionBoxes">
+            <p class="lead">How many different ways are there to flip a coin six times and get heads four of those
                 times?</p>
             <form>
                 <div class="row g-3 mb-3 align-items-center">
@@ -313,12 +339,24 @@
                         <input type="text" id="inputK" class="form-control" aria-describedby="combinationHelpInline">
                     </div>
 
+                    <div class="col-auto">
+                        <p for="inputAns" class="col-form-label">Answer = </p>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputNoOfWays" class="form-control" aria-describedby="combinationHelpInline">
+                    </div>
+
                 </div>
 
                 <div class="alert d-none" role="alert" id='nAndkBanner'>
-                    <p><span id="nkresult"> </span> We need the number of times we want to get heads (our specific outcome),
-                        so we have \(k=4\). The number of events is the total number of coin tosses, giving us \(n=6\).
-                        Therefore, there are \(\binom{6}{4} = 15 \) ways to get four heads from six coin tosses.</p>
+                    <p><span id="nkresult"> </span> The number of events is the total number of coin tosses, giving us \(n=6\). 
+                        We also need the number of times we want to get heads (our specific outcome),
+                        so we have \(k=4\). 
+                        Therefore, there are \(\binom{6}{4} = 15 \) ways to get four heads from six coin tosses.
+                    </p>
+                    <p>In combinatorial notation, 
+                        \[ ^6C_4 = \frac{6!}{(6-4)!4!} = \frac{6 \times 5 \times \cancel{4 \times 3 \times 2 \times 1}}{(2 \times 1) \times \cancel{4 \times 3 \times 2 \times 1}} = \frac{30}{2} = 15.\]
+                    </p>
                 </div>
 
                 <div class="btn btn-lg btn-primary" role="button" onclick="verifyNandK()">Submit</div>
@@ -335,12 +373,16 @@
 
     <div class="container my-1">
         <div class="p-3 rounded">
-            <p class="lead"> We have now seen how to calculate binomial coefficients
-                We have seen how the binomial coefficients can be calculated and what they represent.
+            <p> We have seen how the binomial coefficients can be calculated and what they represent.
                 These coefficients can be represented in Pascal's triangle. </p>
 
-            <h1>Pascal's Triangle</h1>
-
+            <h2>Pascal's Triangle</h2>
+            <p> To construct Pascal's triangle, we begin by placing a 1 in the first row (we call this row 0). 
+                To calculate the next row, we use numbers in the subsequent rows. We add the two numbers directly above 
+                the number we need to calculate. If there are no numbers to the left or right hand side, we place a zero 
+                for that side and proceed with the addition (this means the outer diagonals of the triangle will be 1s). 
+            </p>
+            
             <div class="container p-5 rounded bg-dark">
                 <form id="triangle">
 
@@ -352,9 +394,41 @@
                         <div class="col-auto d-none">
                             <input type="number" step="0.1" value="1" id="powerInput" />
                         </div>
-
-                        <div class="col-auto">
-                            <p for="totalInput" class="col-form-label">No. Rows</p>
+                        <div class="col-auto d-none">
+                            <p for="" class="col-form-label">Highlight Multiples of</p>
+                        </div>
+                        <div class="col-auto d-none">
+                            <form>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="multiples" type="radio" id="times2" value="2">
+                                    <label class="form-check-label" for="times2">
+                                        2
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="multiples" type="radio" id="times3" value="3">
+                                    <label class="form-check-label" for="times3">
+                                        3
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="multiples" type="radio" id="times4" value="4">
+                                    <label class="form-check-label" for="times4">
+                                        4
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="multiples" type="radio" id="times5" value="5">
+                                    <label class="form-check-label" for="times5">
+                                        5
+                                    </label>
+                                  </div>
+                            </form>
+                        </div>
+                        <div class="alert d-none" role="alert" id='multiplesBanner'>
+                            <!-- <p><span id="multiplesResult"> </span> \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (this is called a monomial).
+                                \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (this is an example of a trinomial).
+                                \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition.</p> -->
                         </div>
                         <div class="col-auto">
                             <input type="number" min="1" max="10" step="1" value="5" id="totalInput" />
@@ -363,20 +437,6 @@
                             <div class="btn btn-lg btn-primary" role="button" id="calculate">Go</div>
                         </div>
                     </div>
-
-                    <!-- </form>
-
-                    <div class="input-field">
-                        <label for="powerInput">(1+x)n</label>
-                        <input type="number" step="0.1" value="1" id="powerInput" />
-                    </div>
-                    <div class="input-field">
-                        <label>No. Rows</label>
-                        <input type="number" min="1" max="10" step="1" value="5" id="totalInput" />
-                    </div>
-                    <div class="input-field">
-                        <button class="btn btn-lg btn-primary" id="calculate">Go</button>
-                    </div> -->
                 </form>
                 <div id="result"></div>
             </div>
@@ -384,29 +444,107 @@
         </div>
     </div>
 
-    <div class="container my-1 px-5">
+    <!-- <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded">
             <p class="lead">Can you spot any patterns in the triangle?</p>
         </div>
-    </div>
+    </div> -->
 
-    <div class="container my-1 px-5">
+    <!-- <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded">
             <p class="lead">What are these actually the coefficients of?</p>
         </div>
-    </div>
+    </div> -->
 
     <div class="container my-1">
         <div class="p-3 rounded">
-            <h1> Binomial Theorem</h1>
+            <h2> Binomial Expansion</h2>
+            <p class="lead">Positive Integer Powers</p>
+            <p> We know that a binomial expression contains two terms, such as \((1+x)\). 
+                If we want to square this bracket, we can easily expand it.
+                However, what if we want to calculate \((1+x)^8\)? This would be extremely time consuming.
+                This is where the binomial expansion comes in useful. 
+            </p>
+            \( \text{The Binomial theorem is given by} \)
+            \[(x+a)^n = \sum_{k=0}^n \binom{n}{k}x^k a^{n-k},\]
+            <div>\( \begin{aligned} 
+                    \text{where } n &= \ \text{the number of trials,} \\
+                    k &= \ \text{the number of successes},  \\
+                    x &= \ \text{the probability of success on a single trial,} \\ 
+                    a &= \ \text{the probability of failure on a single trial.} \\ 
+                \end{aligned} \) </div> 
+                   
+            <div> 
+                <p>Example 1: Write down the binomial expansion for \( (1 + x)^4 \).</p>
+                \[ \begin{aligned}
+                 (1 + x)^4 &= \binom{4}{0} 1 + \binom{4}{1} x + \binom{4}{2} x^2 + \binom{4}{3} x^3 + \binom{4}{4} x^4  \\
+                 &= 1 + 4x + 6x^2 + 4x^3 + x^4 \\ 
+                \end{aligned} \]
+                <p>Notice that the coefficients are row 4 from Pascal's triangle, as the binomial is raised to the power of 4.</p>
+            </div>
+            <div>
+                <p>Example 2: Find the binomial expansion for \((1+2x)^3\).</p>
+                \[ \begin{aligned}
+                (1 + 2x)^3 &= \binom{3}{0} 1 + \binom{3}{1} (2x) + \binom{3}{2} (2x)^2 + \binom{3}{3} (2x)^3 \\
+                 &= 1 + 3(2x) + 3(2x)^2 + (2x)^3 \\
+                 &= 1 + 6x + 12x^2 + 8x^3 \\
+                \end{aligned}
+                \]
+            </div>
+            <div>
+                <p>Example 3: Expand \((2+x)^5\). </p>
+                \[ \begin{aligned} 
+                (2 + x)^5 &= \binom{5}{0} 2^5 + \binom{5}{1} x \times 2^4 + \binom{5}{2} x^2 \times 2^3 + \binom{5}{3} x^3 \times 2^2 + \binom{5}{4} x^4 \times 2 + \binom{5}{5} x^5 \\
+                 &= 32 +  80x + 80x^2 + 40x^3 + 10x^4 + x^5 \\
+                 \end{aligned}\]
+            </div>
+            <p>
+                What happens when our terms are connected by subtraction? We use the same formula, taking care with negative signs.
+                This is easiest to see with an example. 
+                <p> </p>
+
+            <div> <p> Example 4: Expand \((x-7)^4\). </p>
+                \[ \begin{aligned} 
+                (x-7)^4 &= \binom{4}{0} x^4 + \binom{4}{1} x^3 \times -7 + \binom{4}{2} x^2 \times (-7)^2+ \binom{4}{3} x \times (-7)^3   + \binom{4}{4} (-7)^4 \\
+                
+                &= x^4 - 28 x^3 + 294 x^2 - 1372 x + 2401 \\
+                \end{aligned} \]</div>
+                
+            </p>
+
+            <div class="container">
+        <p class="lead">Negative Integer Powers</p>
+        <p>When \(n\) is a negative integer, the expansion becomes an infinite series. As an example, let's consider the expansion of \((1+x)^{-n}\), where \(n\) is a positive integer:</p>
+        <div class="katex-display">
+            \((1+x)^{-n} = \sum_{k=0}^{\infty} \binom{-n}{k} 1^{-n-k} x^k\)
+        </div>
+        <p>Using the binomial coefficient formula, we can rewrite the series as:</p>
+        <div class="katex-display">
+            \((1+x)^{-n} = \sum_{k=0}^{\infty} \frac{(-n)(-n-1)(-n-2)...(-n-k+1)}{k!} x^k\)
+        </div>
+        <p>This infinite series converges if \(|x| < 1\), and its expansion can be used to compute the binomial expression with negative integer powers.</p>
+    </div>
+
+            <!-- <p> where </p>
+                    <p>\(n\) = the number of trials </p>
+                    <p>\(k\) = the number of successes  </p>
+                    <p>\(x\) = the probability of success on a single trial  </p>
+                    <p>\(a\) = the probability of failure on a single trial  </p> -->
+        </div>
+    </div>
+
+    <!-- <div class="container my-1">
+        <div class="p-3 rounded">
+            <h2> Binomial Theorem</h2>
             <p class="lead"> The Binomial theorem is given by</p>
             \[(x+a)^n = \sum_{k=0}^n \binom{n}{k}x^k a^{n-k},\]
-            <p> where \(n\) = the number of trials </p>
+            <p> where </p>
+                    <p>\(n\) = the number of trials </p>
                     <p>\(k\) = the number of successes  </p>
                     <p>\(x\) = the probability of success on a single trial  </p>
                     <p>\(a\) = the probability of failure on a single trial  </p>
         </div>
-    </div>
+    </div> -->
 
     <script src="./JS/Triangle.js"></script>
     <script src="./JS/LearnQuestions.js"></script>

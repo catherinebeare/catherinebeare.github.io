@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>B!NOMIAL</title>
+    <link rel="stylesheet" type="text/css" href="./CSS/Triangle.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         
@@ -47,16 +49,110 @@
             <p class="lead">Wondering why you need to know this? Watch these videos to understand how binomial is used 
                 in the real world.
             </p>
+            <p>Approximations using Binomial Expansion</p>
+            
+            <div class="text-center">
+                <iframe width="699" height="393" src="https://www.youtube.com/embed/o8cjisLgqHw" title="Relevance of the Binomial Theorem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+            <div class="text-center">
+                <iframe width="699" height="393" src="https://www.youtube.com/embed/vmH7s4r2eCU" title="Binomial Distribution Real Life Examples || Lesson 53 || Probability &amp; Statistics || Learning Monkey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            
+            </div>
+            
             <h1>Connections</h1>
             <p class="lead">Binomial is not just an "stand-alone" topic. It can link many different mathematical topics. Investigate some of these connections below.</p>
+            <p> Using partial fractions with binomial.</p>
+                        
+            <div class="text-center">
+                <iframe width="703" height="393" src="https://www.youtube.com/embed/wbZQW3l3G0w" title="Binomial Expansion (partial fractions type) | ExamSolutions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            
+            <p> Proof of the Binomial Theorem using Calculus</p>
+
+            <div class="text-center">
+                <iframe width="699" height="393" src="https://www.youtube.com/embed/pam5Edt5nHw" title="An ingenious &amp; unexpected proof of the Binomial Theorem (2 of 2: Proof)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
             <h1>University Level Mathematics</h1>
             <p class="lead">Feeling up for a challenge? See how the information you have learned so far can be used
                 as a basis to explore more difficult mathematical concepts.
             </p>
-            <p> Deriving \(\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\)</p>
-            <p> Proof of the Binomial Theorem using Calculus</p>
+            <p> The Modulus Function </p>
+            <p> Pascal's triangle contains some interseting patterns, specifically when you consider the location of multiples.
+                Investigate some of these patterns by clicking on the options below.
+            </p>
+            <div class="container p-5 rounded bg-dark">
+                <form id="triangle">
+        
+                    <!-- <form> -->
+                    <div class="row g-3 mb-3 align-items-center d-flex justify-content-center text-bg-dark">
+                        <!-- <div class="col-auto">
+                            <label for="powerInput" class="col-form-label">(1+x)n</label>
+                        </div> -->
+                        <div class="col-auto d-none">
+                            <input type="number" step="0.1" value="1" id="powerInput" />
+                        </div>
+                        <div class="col-auto">
+                            <p for="" class="col-form-label">Highlight Multiples of</p>
+                        </div>
+                        <div class="col-auto">
+                            <form>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="multiples" checked type="radio" id="times2" value="2">
+                                    <label class="form-check-label" for="times2">
+                                        2
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="multiples" type="radio" id="times3" value="3">
+                                    <label class="form-check-label" for="times3">
+                                        3
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="multiples" type="radio" id="times4" value="4">
+                                    <label class="form-check-label" for="times4">
+                                        4
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="multiples" type="radio" id="times5" value="5">
+                                    <label class="form-check-label" for="times5">
+                                        5
+                                    </label>
+                                  </div>
+                            </form>
+                        </div>
+                        <div class="alert d-none" role="alert" id='multiplesBanner'>
+                            <!-- <p><span id="multiplesResult"> </span> \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (this is called a monomial).
+                                \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (this is an example of a trinomial).
+                                \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition.</p> -->
+                        </div>
+                        <div class="col-auto d-none">
+                            <input type="number" min="1" max="15" step="1" value="15" id="totalInput" />
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn btn-lg btn-primary" role="button" id="calculate">Go</div>
+                        </div>
+                    </div>
+                </form>
+                <div id="result"></div>
+            </div>
+            <p> </p>
+            <p> We are able to locate mulitiples in the triangle using the modular arithmetic. Watch the video below to understand the basics of modular arithmetic.</p>
+
+            <div class="text-center">
+                <iframe width="699" height="393" src="https://www.youtube.com/embed/5OjZWSdxlU0" title="How does Modular Arithmetic work?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            
+            </div>
+            
+
+            <!-- <p> Deriving \(\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\)</p> -->
+            
         </div>
     </div>
+
+
+    <script src="./JS/Triangle.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
