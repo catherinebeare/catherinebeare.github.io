@@ -63,19 +63,38 @@ function verifyBinomial() {
     binomialExpressionResult.innerText = bannerText; 
 }
 
-// const multiplesOf2 = document.getElementById('times2');
-// const multiplesOf3 = document.getElementById('times3');
-// const multiplesOf4 = document.getElementById('times4');
-// const multiplesOf5 = document.getElementById('times5');
-// const multiplesBanner = document.getElementById('multiplesBanner');
-// const multiplesResult = document.getElementById('multiplesResult');
+const usesInputs = [
+    {
+        name: "usesQ1",
+        correct: "usesQ1Input1"
+    },
+    {
+        name: "usesQ2",
+        correct: "usesQ2Input2"
+    },
+    {
+        name: "usesQ3",
+        correct: "usesQ3Input2"
+    },
+    {
+        name: "usesQ4",
+        correct: "usesQ4Input1"
+    }
+];
 
-// function triangleMultiples() {
-//     const isValid = binomialExpressInput.checked === true;
-//     const bannerType = isValid ? "alert-success" : "alert-danger"
-//     const bannerText = isValid ? "Correct!" : "Not quite!"
+function verifyUses() {
+    for (let index = 0; index < usesInputs.length; index++) {
+        const element = usesInputs[index];
+        const input = document.getElementById(`${element.correct}`);
+        const banner = document.getElementById(`${element.name}Banner`);
+        const result = document.getElementById(`${element.name}Result`);
 
-//     multiplesBanner.classList.remove(...multiplesBanner.classList);
-//     multiplesBanner.classList.add("alert", bannerType);
-//     binomialExpressionResult.innerText = bannerText; 
-// }
+        const isValid = input.checked === true;
+        const bannerType = isValid ? "alert-success" : "alert-danger"
+        const bannerText = isValid ? "Correct!" : "Not quite!"
+    
+        banner.classList.remove(...banner.classList);
+        banner.classList.add("alert", bannerType);
+        result.innerText = bannerText; 
+    }
+}

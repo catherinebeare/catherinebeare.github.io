@@ -1,15 +1,11 @@
 let cards = [
-    {
-      front: "State the Binomial Theorem.",
-      back: " \\begin (x+a)^n = \\sum_{k=0}^n \\binom{n}{k}x^k a^{n-k} \\end"
-    },
+    // {
+    //   front: "State the Binomial Theorem.",
+    //   back: " \\begin (x+a)^n = \\sum_{k=0}^n \\binom{n}{k}x^k a^{n-k} \\end"
+    // },
     {
       front: "What is a Binomial expression?",
        back: "A binomial is an algebraic expression that contains two different terms connected by addition or subtraction."
-    },
-    {
-      front: "Define the term <br> Bernoulli Distribution.",
-      back: "An event that only has two possible outcomes, success or failure."
     },
     {
       front: "What is factorial?",
@@ -18,6 +14,22 @@ let cards = [
     {
       front: "What is the formula for \\begin \\binom{n}{k} \\end ?",
       back: "\\begin \\frac{n!}{k!(n-k)!} \\end "
+    },
+    {
+    front: "How is Pascal's Triangle constructed?",
+    back: "Pascal's Triangle is constructed by placing a 1 in the first row (row 0), and for each subsequent row, calculating the next row by adding the two numbers directly above the number we need to calculate, with outer diagonals of the triangle being 1s."
+    },
+    {
+    front: "What is the binomial expansion formula?",
+    back: "\\begin (a+b)^n = a^n + \\binom{n}{1}a^{n-1}b + \\binom{n}{2}a^{n-2}b^2 + \\dots + b^n \\end."
+    },
+    {
+    front: "What is the binomial distribution formula?",
+    back: "\\begin P(X=k) = \\binom{n}{k}p^k(1-p)^{n-k} \\end"
+    },  
+    {
+    front: "What conditions need to be satisfied in order to use a binomial distribution?",
+    back: "- A fixed number of trials <br><br> - Independent trials <br><br> - Only two outcomes (success or failure) <br><br> - The probability of success remaining unchanged for all trials."
     }
     // {
     //     front: "",

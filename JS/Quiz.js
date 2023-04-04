@@ -8,15 +8,38 @@ const timeElapsedEl = document.getElementById('time-elapsed');
 const questionsAnsweredEl = document.getElementById('questions-answered');
 const quizContainerEl = document.getElementById('quizContainer');
 const resultsContainerEl = document.getElementById('results');
+let staticQuestions = [
+{
+  question: `Use the binomial theorem to expand \\begin (1+2x)^{10} \\end in increasing powers of x, up to and including the term \\begin x^3 \\end`,
+  answer: `1 + 20x + 180x^2 + 960x^3 `
+},
+{
+  question: `Find the coefficient of \\begin x^5 \\end in the binomial expansion of \\begin (3-x)^7 \\end`,
+  answer: `-189`
+},
+{
+  question: `Expand \\begin (1+3x)^4 \\end, giving your answer in decreasing powers of x`,
+  answer: `81x^4 + 103x^3 + 54X^2 + 12x + 1`
+},
+{
+  question: `Find the first four terms in the expansion, in increasing powers of x \\begin (1-\\frac{x}{2})^8\\end`,
+  answer: `1 - 4x + 7x^2 - 7x^3`
+},
+{
+  question: `Find the coefficient of \\begin x^4 \\end in the binomial expansion of \\begin (1-2x)^9 \\end `,
+  answer: `2016`
+}
+];
 
 // Initializing variables
 let currentQuestionIndex = 0;
 let score = 0;
 let timeElapsed = 0;
 let timerId;
-let questionCount = 10;
+let questionCount = 5;
 let questionList = [];
 let runningResult = [];
+let finalTime = 0;
 
 // Function to display the current question
 function displayQuestion() {
@@ -63,6 +86,7 @@ function checkAnswer(event) {
     // quizContainerEl.classList.remove(...quizContainerEl.classList);
     quizContainerEl.classList.add('d-none');
     resultsContainerEl.classList.remove(...resultsContainerEl.classList);
+    finalTime = timeElapsed;
     buildQuizResults();
     currentQuestionIndex++;
     } else {
@@ -85,7 +109,8 @@ function buildQuizResults() {
   for (let i = 0; i < runningResult.length; i++) {
     let current = `Q${(i+1)}. `
     let result = runningResult[i];
-    let questionHTML = `<h5>${current}${processString(decorateTerm(result.question.term))}</h4>`;
+    let question = result.question.question;
+    let questionHTML = `<h4>${current}${processString(question)}</h4>`;
     let userAnswerHTML = `<p>Your answer: ${result.userAnswer}</p>`;
     let correctAnswerHTML = `<p>Correct answer: ${result.question.answer}</p>`;
     let alertClass = result.isCorrect ? "alert-success" : "alert-danger";
@@ -93,6 +118,8 @@ function buildQuizResults() {
     let resultHTML = `<div class="text-bg-light p-5 rounded questionBoxes my-3">${questionHTML}${isCorrectHTML}</div>`;
     quizResultsHTML += resultHTML;
   }
+  let heading = `<h4> ${score}/${questionCount} ${formatTime(finalTime)} </h4>`;
+  quizResultsHTML += heading;
   document.getElementById("quiz-results").innerHTML = quizResultsHTML;
 }
 
@@ -124,6 +151,7 @@ function restartGame() {
     currentQuestionIndex = 0;
     score = 0;
     timeElapsed = 0;
+    finalTime = 0;
     resultEl.textContent = '';
     resultEl.classList.remove(...resultEl.classList);
     resultEl.classList.add("d-none");
@@ -192,18 +220,36 @@ function processString(inputString) {
   }
 
   function generateQuiz() {    
+    let count = questionCount-2
     questionList = [];
-    for (let index = 0; index < questionCount; index++) {
+    for (let index = 0; index < count; index++) {
         const term = generateTerm();
         questionList.push(
             {
                 term: term,
-                question: `Expand the following, giving your answer in decreasing powers of x: ${decorateTerm(term)}`,
+                question: `Expand the following, giving your answer in increasing powers of x: ${decorateTerm(term)}`,
                 answer: fixBinomialSpacing(expand(term))
                }
         )
     }
-    console.log(questionList);
+
+    shuffleArray(staticQuestions);
+    for (let index = 0; index < 2; index++) {
+      questionList.push(staticQuestions[index])
+    }
+
+    // questionList.concat(staticQuestions);
+    shuffleArray(questionList);
+    console.log("Markus", questionList);
+  }
+
+  const shuffleArray = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
   }
 
   function fixBinomialSpacing(str) {
@@ -237,11 +283,11 @@ function processString(inputString) {
   function generateTerm() {
     const letters = 'abcdefghijkmnpqrstuvwyz';
     const plusOrMinus = Math.random() < 0.5 ? '-' : '+';
-    const isNumber = Math.random() < 0.5;
+    const isNumber = Math.random() < 0.9;
     const number = isNumber ? Math.floor(Math.random() * 10) + 1 : letters[Math.floor(Math.random() * letters.length)];
     const exponent = Math.floor(Math.random() * 7) + 2;
     
-    return `(x ${plusOrMinus} ${number}) ^ ${exponent}`;
+    return `(${number} ${plusOrMinus} x) ^ ${exponent}`;
   }
 
 //   CALCULATING THE ANSWER
