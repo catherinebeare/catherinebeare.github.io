@@ -15,7 +15,8 @@
         integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
         crossorigin="anonymous"></script>
     </head>
-
+    <link rel="stylesheet" type="text/css" href="./CSS/Theme.css">
+    
 <body>
     <nav class="navbar sticky-top bg-dark mb-4" data-bs-theme="dark">
         <div class="container-fluid">
@@ -39,20 +40,21 @@
         </div>
     </nav>
 
-    <div class="container my-1">
-        <div class="p-3 rounded">
+    <div class="container mt-1">
+        <div class="pt-3 rounded">
             <h1>Study Cards</h1>
-            
+            <p class="lead"><strong>Note: </strong>Click the card to reveal the answer</p>
+            <p class="text-center" id="cardCount"> </p>
         </div>
     </div>
     <div>
         <div class="wrapper">
             <div class="carousel"></div>
             <div class="row flex-row justify-content-center">
-                <div class="col-auto mx-5">
+                <div class="col-auto mx-5" id="previousContainer">
                     <button class="prev btn btn-primary btn-lg my-2">Prev</button> 
                 </div>
-                <div class="col-auto mx-5">
+                <div class="col-auto mx-5" id="nextContainer">
                     <button class="next btn btn-primary btn-lg my-2">Next</button>
                 </div>
             </div>
@@ -64,6 +66,23 @@
         onload="renderCards();"></script>
     </div>
 
+    <div id="accessibility-widget" class="accessibility-widget">
+        <button id="toggle-accessibility" class="btn btn-primary">Accessibility Options</button>
+        <div id="accessibility-options" class="accessibility-options d-none">
+          <div class="form-group">
+            <label for="color-theme">Color Theme:</label>
+            <select id="color-theme" class="form-select">
+              <option value="default">Default</option>
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+              <option value="dyslexia">Dyslexia-friendly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="font-scale">Font Size:</label>
+            <input id="font-scale" type="range" min="1" max="1.5" step="0.001" value="1" class="form-range">
+          </div>
+        </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -74,6 +93,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
         crossorigin="anonymous"></script>
+    <script src="JS/Accessibility.js"></script>
 </body>
 
 </html>

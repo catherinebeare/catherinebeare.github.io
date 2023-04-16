@@ -7,27 +7,89 @@ const resultEl = document.getElementById('result');
 const timeElapsedEl = document.getElementById('time-elapsed');
 const questionsAnsweredEl = document.getElementById('questions-answered');
 const quizContainerEl = document.getElementById('quizContainer');
+const quizStartContainerEl = document.getElementById('quizStartContainer');
 const resultsContainerEl = document.getElementById('results');
+const warningEl = document.getElementById('warning');
 let staticQuestions = [
 {
-  question: `Use the binomial theorem to expand \\begin (1+2x)^{10} \\end in increasing powers of x, up to and including the term \\begin x^3 \\end`,
+  question: `Use the binomial theorem to expand \\begin (1+2x)^{10} \\end in increasing powers of x, up to and including the term in \\begin x^3 \\end.`,
   answer: `1 + 20x + 180x^2 + 960x^3 `
 },
 {
-  question: `Find the coefficient of \\begin x^5 \\end in the binomial expansion of \\begin (3-x)^7 \\end`,
+  question: `Find the coefficient of \\begin x^5 \\end in the binomial expansion of \\begin (3-x)^7 \\end.`,
   answer: `-189`
 },
 {
-  question: `Expand \\begin (1+3x)^4 \\end, giving your answer in decreasing powers of x`,
+  question: `Expand \\begin (1+3x)^4 \\end, giving your answer in decreasing powers of x.`,
   answer: `81x^4 + 103x^3 + 54X^2 + 12x + 1`
 },
 {
-  question: `Find the first four terms in the expansion, in increasing powers of x \\begin (1-\\frac{x}{2})^8\\end`,
+  question: `Find the first four terms in the expansion, in increasing powers of x \\begin (1-\\frac{x}{2})^8\\end.`,
   answer: `1 - 4x + 7x^2 - 7x^3`
 },
 {
-  question: `Find the coefficient of \\begin x^4 \\end in the binomial expansion of \\begin (1-2x)^9 \\end `,
+  question: `Find the coefficient of \\begin x^4 \\end in the binomial expansion of \\begin (1-2x)^9 \\end.`,
   answer: `2016`
+},
+{
+  question: `Find the coefficient of \\begin x^4 \\end in the binomial expansion of \\begin (2+\\frac{x}{5})^6 \\end.`,
+  answer: `12/125`
+},
+{
+  question: `Find the first four terms in the expansion, in increasing powers of x \\begin (2+\\frac{x}{2})^5\\end.`,
+  answer: `32 + 40x + 20x^2 + 5x^3`
+},
+{
+  question: `Find the first four terms in the expansion, in increasing powers of x \\begin (1-\\frac{x}{2})^8\\end.`,
+  answer: `1 - 4x + 7x^2 - 7x^3`
+},
+{
+  question: `In the Binomial expansion of \\begin (1+ \\frac{x}{3})^n \\end, the coefficient of \\begin x^2 \\end is 4. Find the value of \\begin n \\end, where \\begin n \\end is a positive integer.`,
+  answer: `9`
+},
+{
+  question: `Find the first three terms in the expansion, in increasing powers of x \\begin (1+\\frac{x}{3})^9\\end.`,
+  answer: `1 + 3x + 4x^2`
+},
+{
+  question: `Find the first three terms in the expansion, in increasing powers of x \\begin (3+\\frac{x}{3})^5\\end.`,
+  answer: `243 + 135x + 30x^2`
+},
+{
+  question: `Find the first four terms in the expansion, in increasing powers of x \\begin (3+\\frac{x}{3})^8\\end.`,
+  answer: `6561 + 5832x + 2268x^2 + 504x^3`
+},
+{
+  question: `Find the first four terms in the expansion, in increasing powers of x \\begin (4-\\frac{x}{2})^4\\end.`,
+  answer: `256 - 128x + 24x^2 - 2x^3`
+},
+{
+  question: `Find the coefficient of \\begin x^4 \\end in the binomial expansion of \\begin (3+\\frac{x}{3})^8\\end.`,
+  answer: `70`
+},
+{
+  question: `Find the first four terms in the expansion, in increasing powers of x \\begin (4-\\frac{x}{2})^4\\end.`,
+  answer: `3125 - 625x + 50x^2 - 2x^3`
+},
+{
+  question: `Find the coefficient of \\begin x^4 \\end in the binomial expansion of \\begin (3-2x)^5\\end.`,
+  answer: `240`
+},
+{
+  question: `Find the coefficient of \\begin x^7 \\end in the binomial expansion of \\begin (5+2x)^8\\end.`,
+  answer: `1024`
+},
+{
+  question: `Find the coefficient of \\begin x^3 \\end in the binomial expansion of \\begin (6+x)^5\\end.`,
+  answer: `360`
+},
+{
+  question: `Use the Binomial theorem to expand \\begin (2+3x)^4\\end in decreasing powers of x.`,
+  answer: `81x^4 + 216x^3 + 216x^2 + 96x + 16`
+},
+{
+  question: `Find the coefficient of \\begin x^3 \\end in the binomial expansion of \\begin (1-3x)^6\\end.`,
+  answer: `-540`
 }
 ];
 
@@ -49,6 +111,7 @@ questionEl.innerHTML = processString(questionList[currentQuestionIndex].question
 
 // Function to check the answer and display the result
 function checkAnswer(event) {
+  event.preventDefault();
     if (currentQuestionIndex > questionList.length) {
         restartGame();
         return
@@ -145,6 +208,12 @@ function removeQuestionBoxesFromClassList(doc) {
   }
 }
 
+function configureQuiz(count){
+  questionCount = count;
+  quizStartContainerEl.classList.add("d-none");
+  restartGame();
+}
+
 // Function to restart the game
 function restartGame() {
     console.log("restarting")
@@ -158,6 +227,7 @@ function restartGame() {
     resultsContainerEl.classList.remove(...resultsContainerEl.classList);
     resultsContainerEl.classList.add("d-none");
     quizContainerEl.classList.remove("d-none");
+    warningEl.classList.remove("d-none");
     // quizContainerEl.classList.add("d-none");
     document.getElementById("quiz-results").innerHTML = "";
     submitBtn.innerText = "Submit"
@@ -179,7 +249,7 @@ function startTimer() {
 // Adding event listeners
 submitBtn.addEventListener('click', checkAnswer);
 restartBtn.addEventListener('click', restartGame);
-
+document.getElementById('quizForm').addEventListener('submit', checkAnswer);
 function processString(inputString) {
     const startFlag = "\\begin";
     const endFlag = "\\end";
@@ -220,7 +290,8 @@ function processString(inputString) {
   }
 
   function generateQuiz() {    
-    let count = questionCount-2
+    let staticCount = Math.round(questionCount * 0.4);
+    let count = questionCount-staticCount
     questionList = [];
     for (let index = 0; index < count; index++) {
         const term = generateTerm();
@@ -234,13 +305,12 @@ function processString(inputString) {
     }
 
     shuffleArray(staticQuestions);
-    for (let index = 0; index < 2; index++) {
+    for (let index = 0; index < staticCount; index++) {
       questionList.push(staticQuestions[index])
     }
 
     // questionList.concat(staticQuestions);
     shuffleArray(questionList);
-    console.log("Markus", questionList);
   }
 
   const shuffleArray = array => {
@@ -285,7 +355,7 @@ function processString(inputString) {
     const plusOrMinus = Math.random() < 0.5 ? '-' : '+';
     const isNumber = Math.random() < 0.9;
     const number = isNumber ? Math.floor(Math.random() * 10) + 1 : letters[Math.floor(Math.random() * letters.length)];
-    const exponent = Math.floor(Math.random() * 7) + 2;
+    const exponent = Math.floor(Math.random() * 4) + 2  ;
     
     return `(${number} ${plusOrMinus} x) ^ ${exponent}`;
   }

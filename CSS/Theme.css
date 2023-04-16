@@ -1,0 +1,108 @@
+.accessibility-widget {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1000;
+    color: #000000;
+  }
+  
+  .accessibility-options {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+  }
+  
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #d2d6d9;
+}
+
+input[type="range"]::-moz-range-track {
+    background-color: #d2d6d9;
+}
+
+  body.dark {
+    background-color: #282b2e;
+    color: #fff;
+  }
+  
+  body.light {
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+  
+  body.dyslexia {
+    font-family: 'Open Dyslexic', sans-serif;
+    /* background-color: #effd89; */
+    background-color: #f8fd89;
+    color: #212529;
+  }
+
+  :root {
+    --font-scale: 1; 
+    font-size: calc(1rem * var(--font-scale));
+  }
+
+/* body.default .text-muted {
+    color: #6c757d;
+} */
+
+body.dark .text-muted {
+    color: #adb5bd;
+}
+
+body.dark .lead {
+    color: #adb5bd !important;
+}
+
+body.light .text-muted {
+    color: #6c757d !important;
+}
+
+body.dyslexia .text-muted {
+    color: #6c757d !important;
+}
+
+body.dark .text-bg-light {
+    color: #ffffff !important;
+    background-color: #313438 !important;
+}
+
+/* body.dark .bg-dark {
+  color: #000000 !important;
+  background-color: #6c757d !important;
+} */
+
+.back-dark {
+  color: #ffffff !important;
+  /* background-color: #6c757d !important; */
+  background-color: RGBA(33,37,41,var(--bs-bg-opacity,1))!important;
+}
+
+body.dark .back-dark .lead{
+  color: #000000 !important;
+}
+
+
+body.dark .back-dark {
+  color: #000000 !important;
+  /* background-color: #6c757d !important; */
+  background-color: #c1c6cb !important;
+  border: 1px #ffffff solid;
+}
+
+body.dyslexia .text-bg-light {
+  color: #000000 !important;
+  background-color: #eddd6e !important;  
+}
+
+input[type="radio"] {
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  border: 1px solid #212529;
+}
+
+input[type="radio"]:hover {
+  box-shadow: inset 0px 0px 0px 3px #89c5fd, 0px 0px 0px 3px #89c5fd;
+  /* background-color: #89c5fd; */
+}

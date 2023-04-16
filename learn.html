@@ -20,6 +20,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
         integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"></script>
+    <link rel="stylesheet" type="text/css" href="./CSS/Theme.css">  
 </head>
 
 <body class="mb-5">
@@ -61,7 +62,7 @@
     <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded questionBoxes">
             <p class="lead">Which of the following is a binomial expression?</p>
-            <form>
+            <form autocomplete="off">
                 <div class="row g-3 mb-3 align-items-center">
                     <!-- <div class="col-auto">
                         <label for="inputBinomialExpression" class="col-form-label">Answer</label>
@@ -71,7 +72,7 @@
                             aria-describedby="combinationHelpInline">
                     </div> -->
 
-                <form>
+                <form autocomplete="off">
                     <div class="form-check">
                         <input class="form-check-input" name="whichBinomial" type="radio" id="monomialInput" value="option1">
                         <label class="form-check-label" for="monomialInput">
@@ -133,7 +134,7 @@
     <!-- <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded">
             <p class="lead">How many ways can we get all heads? </p>
-            <form>
+            <form autocomplete="off">
                 <div class="row g-3 mb-3 align-items-center">
                     <div class="col-auto">
                         <label for="inputCombination" class="col-form-label">Answer</label>
@@ -165,7 +166,7 @@
     <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded questionBoxes">
             <p class="lead">What is the value of 4!? </p>
-            <form>
+            <form autocomplete="off">
                 <div class="row g-3 mb-3 align-items-center">
                     <div class="col-auto">
                         <label for="factorialInput" class="col-form-label">Answer</label>
@@ -220,7 +221,7 @@
         <div class="text-bg-light p-5 rounded questionBoxes">
             <p class="lead">How many different ways are there to flip a coin six times and get heads four of those
                 times?</p>
-            <form>
+            <form autocomplete="off">
                 <div class="row g-3 mb-3 align-items-center">
                     <div class="col-auto">
                         <label for="inputN" class="col-form-label">\(n = \)</label>
@@ -280,16 +281,16 @@
                 for that side and proceed with the addition (this means the outer diagonals of the triangle will be 1s). 
             </p>
             
-            <div class="container p-5 rounded bg-dark">
-                <p class="lead" style="color: white;">Can you calculate the 6th row of Pascal's triangle? Change the number of rows to check your answer. </p>
-                <p class="lead" style="color: white;">  What about the 10th row?</p>
+            <div id="triangle"> 
+            <div class="container p-5 rounded back-dark">
+                <div id="instructions">
+                <p class="lead">Can you calculate the 6th row of Pascal's triangle? Change the number of rows to check your answer. </p>
+                <p class="lead">  What about the 10th row?</p>
+                </div>
                 <form id="triangle">
                     
-                    <!-- <form> -->
-                    <div class="row g-3 mb-3 align-items-center d-flex justify-content-center text-bg-dark">
-                        <!-- <div class="col-auto">
-                            <label for="powerInput" class="col-form-label">(1+x)n</label>
-                        </div> -->
+                    <!-- <form autocomplete="off"> -->
+                    <div class="row g-3 mb-3 align-items-center d-flex justify-content-center back-dark" style="border-style:none !important;">
                         <div class="col-auto d-none">
                             <input type="number" step="0.1" value="1" id="powerInput" />
                         </div>
@@ -297,7 +298,7 @@
                             <p for="" class="col-form-label">Highlight Multiples of</p>
                         </div>
                         <div class="col-auto d-none">
-                            <form>
+                            <form autocomplete="off">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="multiples" type="radio" id="times2" value="2">
                                     <label class="form-check-label" for="times2">
@@ -330,6 +331,9 @@
                                 \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition.</p> -->
                         </div>
                         <div class="col-auto">
+                            <p for="totalInput" class="col-form-label">No. of Rows</p>
+                        </div>
+                        <div class="col-auto">
                             <input type="number" min="1" max="10" step="1" value="5" id="totalInput" />
                         </div>
                         <div class="col-auto">
@@ -339,7 +343,7 @@
                 </form>
                 <div id="result"></div>
             </div>
-
+            </div>
         </div>
     </div>
 
@@ -368,12 +372,13 @@
                 <p>We can calculate the binomial expansion for positive integer powers using the following formula:</p>
             
             \[ (a+b)^n =a^n + \binom{n}{1}a^{n-1}b + \binom{n}{2}a^{n-2}b^2 + ... + \binom{n}{r}a^{n-r}b^r + ... + b^n, \]
-            <div>\( \begin{aligned} 
-                    \text{where } n &= \ \text{the number of trials, and } n \in \mathbb{N}, \\
+            <div>
+                    <!-- \text{where } n \in \mathbb{N} &= \ \text{the number of trials, and } n \in \mathbb{N}, \\
                     k &= \ \text{the number of successes},  \\
                     x &= \ \text{the probability of success on a single trial,} \\ 
-                    a &= \ \text{the probability of failure on a single trial.} \\ 
-                \end{aligned} \) </div> 
+                    a &= \ \text{the probability of failure on a single trial.} \\  -->
+                    <p>where \(n \in \mathbb{N}\) and \( \binom{n}{r} \) is as defined in the binomial coefficient above.</p> 
+            </div> 
                    
             <div> 
                 <br>
@@ -554,57 +559,7 @@
                 (heads then tails, or tails then heads). For more information on combinations and permutations, click 
                 <a href="expand.html">here.</a></p>
             
-                <!-- <div class="container my-1 px-5">
-                    <div class="text-bg-light p-5 rounded questionBoxes">
-                        <p class="lead">How many different ways are there to flip a coin six times and get heads four of those
-                            times?</p>
-                        <form>
-                            <div class="row g-3 mb-3 align-items-center">
-                                <div class="col-auto">
-                                    <label for="inputN" class="col-form-label">\(n = \)</label>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" id="inputN" class="form-control" aria-describedby="combinationHelpInline">
-                                </div>
-            
-                                <div class="col-auto">
-                                    <p for="inputK" class="col-form-label">\(k =\)</p>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" id="inputK" class="form-control" aria-describedby="combinationHelpInline">
-                                </div>
-            
-                                <div class="col-auto">
-                                    <p for="inputAns" class="col-form-label">Answer = </p>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" id="inputNoOfWays" class="form-control" aria-describedby="combinationHelpInline">
-                                </div>
-            
-                            </div>
-            
-                            <div class="alert d-none" role="alert" id='nAndkBanner'>
-                                <p><span id="nkresult"> </span> The number of events is the total number of coin tosses, giving us \(n=6\). 
-                                    We also need the number of times we want to get heads (our specific outcome),
-                                    so we have \(k=4\). 
-                                    Therefore, there are \(\binom{6}{4} = 15 \) ways to get four heads from six coin tosses.
-                                </p>
-                                <p>In combinatorial notation, 
-                                    \[ ^6C_4 = \frac{6!}{(6-4)!4!} = \frac{6 \times 5 \times \cancel{4 \times 3 \times 2 \times 1}}{(2 \times 1) \times \cancel{4 \times 3 \times 2 \times 1}} = \frac{30}{2} = 15.\]
-                                </p>
-                            </div>
-            
-                            <div class="btn btn-lg btn-primary" role="button" onclick="verifyNandK()">Submit</div>
-                        </form>
-            
-                        <div class="">
-                            <p>We need the number of times we want to get heads (heads in the first toss and heads in the second
-                                toss),
-                                so we have \(k=2\). The number of events is the total number of coin tosses, giving us \(n=2\).
-                                Therefore, there is \(\binom{2}{2} = 1 \) way to get all heads from two coin tosses.</p>
-                        </div>
-                    </div>
-                </div> -->
+                
 
             <p> It is easy to list all possible outcomes when we only have two coins.
                 However, what if we have 6 coins? Or 200? We can use a formula to calculate the probabilities of each of these outcomes.  
@@ -620,12 +575,73 @@
         </div>
     </div>
 
+    <div class="container my-1 px-5">
+        <div class="text-bg-light p-5 rounded questionBoxes">
+            <p class="lead">With 9 coin tosses, what is the probability that 5 are heads? Give you answer as a percentage, to 2 decimal places.</p>
+            <form autocomplete="off">
+                <div class="row g-3 mb-3 align-items-center">
+                    <div class="col-auto">
+                        <label for="inputNProb" class="col-form-label">\(n = \)</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputNProb" class="form-control" aria-describedby="HelpInline">
+                    </div>
+
+                    <div class="col-auto">
+                        <p for="inputKProb" class="col-form-label">\(k =\)</p>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputKProb" class="form-control" aria-describedby="combinationHelpInline">
+                    </div>
+                    <div class="col-auto">
+                        <p for="inputPProb" class="col-form-label">\(p =\)</p>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputPProb" class="form-control" aria-describedby="HelpInline">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-auto">
+                        <p for="inputAnsProb" class="col-form-label">Answer = </p>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputAnsProb" class="form-control" aria-describedby="combinationHelpInline">
+                    </div>
+                    <div class="col-auto p-0">
+                        <p class="col-form-label">\(\%\)</p>
+                    </div>
+                </div>
+                <div class="alert d-none" role="alert" id='probBanner'>
+                    <p><span id="probResult"> </span> The number of trials is the total number of coin tosses, giving us \(n=9\). 
+                        We also need the number of successes, which is the number of times we want to get heads,
+                        \(k=5\). The probability of success for a coin toss is always \(0.5\).
+                        Therefore, the probability of getting \(5\) heads from \(9\) coin tosses is \[P(5 \text{ heads from } 9 \text{ tosses }) = \binom{9}{5} 0.5^5(1-0.5)^4 =  0.24609 = 24.61\%\]
+                    </p>
+                </div>
+
+                <div class="btn btn-lg btn-primary" role="button" onclick="verifyProbability()">Submit</div>
+            </form>
+        </div>
+    </div>
+
     <div class="container my-1">
         <div class="p-3 rounded">
             <h2> When to use a Binomial Distribution </h2>
-            <p> There are a number of conditions which need to be satisfied in order to use a binomial distribution.</p>
+            <p> There are a number of conditions which need to be satisfied in order to use a binomial distribution. We can use the mneumonic BINS to help up remember.</p>
                 <ol> 
                     <li> 
+                        <p><b>B</b>inary number of outcomes. There are 2 possible outcomes - success and failure.</p>
+                    </li>
+                    <li> 
+                        <p><b>I</b>ndependent trials. Knowing the outcome of one trial must not tell us anything about the next.</p>
+                    </li>
+                    <li> 
+                        <p><b>N</b>umber of trials. The number of trials, \(n\), must be fixed in advance.</p>
+                    </li>
+                    <li> 
+                        <p><b>S</b>ame probabilty of success for each trial.</p>
+                    </li>
+                    <!-- <li> 
                         <p class="lead">Fixed number of trials , \(n\)</p>
                     </li>
                     <li> 
@@ -636,7 +652,7 @@
                     </li>
                     <li> 
                         <p class="lead">The probabilty of success remains unchanged for all trials</p>
-                    </li>
+                    </li> -->
                 </ol>
     </div>
 
@@ -645,9 +661,9 @@
             <div class="">
                 <h4>Which of the following are the correct examples for each of the conditions?</h4>
                 <p class="lead">Fixed number of trials</p>
-                <form>
+                <form autocomplete="off">
                     <div class="row g-3 mb-3 align-items-center">
-                    <form>
+                    <form autocomplete="off">
                         <div class="form-check">
                             <input class="form-check-input" name="usesQ1" type="radio" id="usesQ1Input1" value="option1">
                             <label class="form-check-label" for="usesQ1Input1">
@@ -673,9 +689,9 @@
 
             <div class="">
                 <p class="lead">Independent Events</p>
-                <form>
+                <form autocomplete="off">
                     <div class="row g-3 mb-3 align-items-center">
-                    <form>
+                    <form autocomplete="off">
                         <div class="form-check">
                             <input class="form-check-input" name="usesQ2" type="radio" id="usesQ2Input1" value="option1">
                             <label class="form-check-label" for="usesQ2Input1">
@@ -702,9 +718,9 @@
 
             <div class="">
                 <p class="lead">Two Outcomes</p>
-                <form>
+                <form autocomplete="off">
                     <div class="row g-3 mb-3 align-items-center">
-                    <form>
+                    <form autocomplete="off">
                         <div class="form-check">
                             <input class="form-check-input" name="usesQ3" type="radio" id="usesQ3Input1" value="option1">
                             <label class="form-check-label" for="usesQ3Input1">
@@ -730,9 +746,9 @@
 
             <div class="">
                 <p class="lead">Constant Probability</p>
-                <form>
+                <form autocomplete="off">
                     <div class="row g-3 mb-3 align-items-center">
-                    <form>
+                    <form autocomplete="off">
                         <div class="form-check">
                             <input class="form-check-input" name="usesQ4" type="radio" id="usesQ4Input1" value="option1">
                             <label class="form-check-label" for="usesQ4Input1">
@@ -782,9 +798,30 @@
         </div>
     </div> -->
     </div>
+
+    <div id="accessibility-widget" class="accessibility-widget">
+        <button id="toggle-accessibility" class="btn btn-primary">Accessibility Options</button>
+        <div id="accessibility-options" class="accessibility-options d-none">
+          <div class="form-group">
+            <label for="color-theme">Color Theme:</label>
+            <select id="color-theme" class="form-select">
+              <option value="default">Default</option>
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+              <option value="dyslexia">Dyslexia-friendly</option>
+            </select>
+          </div>
+          <!-- Rest of the accessibility options -->
+          <div class="form-group">
+            <label for="font-scale">Font Size:</label>
+            <input id="font-scale" type="range" min="1" max="1.5" step="0.001" value="1" class="form-range">
+          </div>
+        </div>
+
     <script src="./JS/Triangle.js"></script>
     <script src="./JS/LearnQuestions.js"></script>
     <script src="./JS/CoinFlip.js"></script>
+    <script src="JS/Accessibility.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -795,6 +832,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
         crossorigin="anonymous"></script>
+    
 </body>
 
 </html>

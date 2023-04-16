@@ -63,6 +63,29 @@ function verifyBinomial() {
     binomialExpressionResult.innerText = bannerText; 
 }
 
+const inputNProb = document.getElementById('inputNProb');
+const inputKProb = document.getElementById('inputKProb');
+const inputPProb = document.getElementById('inputPProb');
+const inputAnsProb = document.getElementById('inputAnsProb');
+const probBanner = document.getElementById('probBanner');
+const probResult = document.getElementById('probresult');
+
+function verifyProbability() {
+    const n = inputNProb.value
+    const k = inputKProb.value
+    const p = inputPProb.value
+    const ans = inputAnsProb.value
+
+    const isValid = n == 9 && k == 5 && (p == 0.5 || p == "1/2") && ans == 24.61
+    const bannerType = isValid ? "alert-success" : "alert-danger"
+    const bannerText = isValid ? "Correct!" : "Not quite!"
+
+    probBanner.classList.remove(...probBanner.classList);
+    probBanner.classList.add("alert", bannerType);
+    probResult.innerText = bannerText;
+}
+
+
 const usesInputs = [
     {
         name: "usesQ1",

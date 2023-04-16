@@ -12,7 +12,7 @@ let cards = [
       back: "Factorial (denoted '!') is the product of an integer and all the integers below it."
     },
     {
-      front: "What is the formula for \\begin \\binom{n}{k} \\end ?",
+      front: "What is the formula for  \\begin \\binom{n}{k} \\end ?",
       back: "\\begin \\frac{n!}{k!(n-k)!} \\end "
     },
     {
@@ -61,17 +61,33 @@ let cards = [
     // }
   ];
   
-
+  
 
 
   let currentCard = 1,
     carousel = document.querySelector(".carousel"),
     next = document.querySelector(".next"),
-    prev = document.querySelector(".prev");
+    prev = document.querySelector(".prev"),
+    prevContainer = document.getElementById("previousContainer"),
+    nextContainer = document.getElementById("nextContainer");
   
-  // renderCards();
+  let cardCount = document.getElementById("cardCount");
   
+  function printResults() {
+    let originalContents = document.body.innerHTML;
+    removeQuestionBoxesFromClassList(document.getElementById("quiz-results"));
+    let printContents = document.getElementById("quiz-results").innerHTML;
+    
+  
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+  }
+
   function renderCards() {
+    shuffleArray(cards);
+    handleButtonChanges();
+    cardCount.innerText = `${currentCard}/${cards.length}`;
     carousel.style.width = `${cards.length}00vw`;
     cards.map(el => {
       let div = document.createElement("div");
@@ -82,8 +98,6 @@ let cards = [
       back.classList.add("back", "text-bg-light", "lead", "rounded", "p-2");
       front.innerHTML = processString(el.front);
       back.innerHTML = processString(el.back);
-      // back.innerHTML = createDivWithTwoParagraphs("Answer", processString(el.back))
-      // front.innerHTML = createDivWithTwoParagraphs("Question", processString(el.front))
       div.appendChild(front);
       div.appendChild(back);
       div.addEventListener("click", function(e) {
@@ -93,6 +107,15 @@ let cards = [
     });
   }
   
+  const shuffleArray = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
+
   function createDivWithTwoParagraphs(text1, text2) {
     // Create a new div element
     const div = document.createElement('div');
@@ -121,9 +144,11 @@ let cards = [
 
   next.addEventListener("click", function(e) {
     if (currentCard >= cards.length) {
-      return;
+      currentCard = 1;
+    } else {
+      currentCard++;
     }
-    currentCard++;
+    handleButtonChanges();
     cardFly();
   });
   
@@ -132,10 +157,25 @@ let cards = [
       return;
     }
     currentCard--;
+    handleButtonChanges();
     cardFly();
   });
   
+  function handleButtonChanges() {
+    prevContainer.classList.remove("d-none");
+    if (currentCard == 1) {
+      prevContainer.classList.add("d-none")
+    }
+
+    if (currentCard == cards.length) {
+      next.textContent = "Restart"
+    } else {
+      next.textContent = "Next"
+    }
+  }
+
   function cardFly() {
+    cardCount.innerText = `${currentCard}/${cards.length}`;
     carousel.style.transform = `translateX(-${currentCard - 1}00vw)`;
   }
 
