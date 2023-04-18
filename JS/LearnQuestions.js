@@ -121,3 +121,32 @@ function verifyUses() {
         result.innerText = bannerText; 
     }
 }
+
+
+const inputpartA = document.getElementById('inputpartA');
+const inputpartB = document.getElementById('inputpartB');
+const combBannerA = document.getElementById('combBannerA');
+const combBannerB = document.getElementById('combBannerB');
+const combPartAResult = document.getElementById('combPartAResult');
+const combPartBResult = document.getElementById('combPartBResult');
+
+function verifyCombination() {
+    const a = inputpartA.value
+    const b = inputpartB.value
+
+    const isValidA = a == 671
+    const bannerTypeA = isValidA ? "alert-success" : "alert-danger"
+    const bannerTextA = isValidA ? "Correct!" : "Not quite!"
+
+    combBannerA.classList.remove(...combBannerA.classList);
+    combBannerA.classList.add("alert", bannerTypeA);
+    combPartAResult.innerText = bannerTextA;
+
+    const isValidB =  b == 369 
+    const bannerTypeB = isValidB ? "alert-success" : "alert-danger"
+    const bannerTextB = isValidB ? "Correct!" : "Not quite!"
+
+    combBannerB.classList.remove(...combBannerB.classList);
+    combBannerB.classList.add("alert", bannerTypeB);
+    combPartBResult.innerText = bannerTextB;
+}
