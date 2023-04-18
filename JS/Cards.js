@@ -17,11 +17,11 @@ let cards = [
     },
     {
     front: "How is Pascal's Triangle constructed?",
-    back: "Pascal's Triangle is constructed by placing a 1 in the first row (row 0), and for each subsequent row, calculating the next row by adding the two numbers directly above the number we need to calculate, with outer diagonals of the triangle being 1s."
+    back: "Pascal's Triangle is constructed by placing a 1 in the first row (row 0). Each subsequent row is calculated by adding the two numbers directly above the number we need to calculate. The outer diagonals will always be 1s."
     },
     {
     front: "What is the binomial expansion formula?",
-    back: "\\begin (a+b)^n = a^n + \\binom{n}{1}a^{n-1}b + \\binom{n}{2}a^{n-2}b^2 + \\dots + b^n \\end."
+    back: "\\begin (a+b)^n = a^n + \\binom{n}{1}a^{n-1}b + \\binom{n}{2}a^{n-2}b^2 + \\dots + b^n \\end"
     },
     {
     front: "What is the binomial distribution formula?",
@@ -31,31 +31,6 @@ let cards = [
     front: "What conditions need to be satisfied in order to use a binomial distribution?",
     back: "- A fixed number of trials <br><br> - Independent trials <br><br> - Only two outcomes (success or failure) <br><br> - The probability of success remaining unchanged for all trials."
     }
-    // {
-    //     front: "",
-    //     back: ""
-    // },
-    // {
-    // front: "",
-    // back: ""
-    // },
-    // {
-    // front: "",
-    // back: ""
-    // },
-    // {
-    // front: "",
-    // back: ""
-    // },
-    // {
-    // front: "",
-    // back: ""
-    // },
-    // {
-    // front: "",
-    // back: ""
-    // },
-    // {
     // front: "",
     // back: ""
     // }

@@ -76,7 +76,7 @@ function verifyProbability() {
     const p = inputPProb.value
     const ans = inputAnsProb.value
 
-    const isValid = n == 9 && k == 5 && (p == 0.5 || p == "1/2") && ans == 24.61
+    const isValid = n == 9 && k == 5 && (p == 0.5 || p == "1/2" || p == "50%") && ans == 24.61
     const bannerType = isValid ? "alert-success" : "alert-danger"
     const bannerText = isValid ? "Correct!" : "Not quite!"
 

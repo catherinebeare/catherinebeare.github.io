@@ -53,7 +53,7 @@ body.dark .text-muted {
 }
 
 body.dark .lead {
-    color: #adb5bd !important;
+    color: #ffffff !important;
 }
 
 body.light .text-muted {
@@ -92,9 +92,34 @@ body.dark .back-dark {
   border: 1px #ffffff solid;
 }
 
+body.dyslexia .back-dark .lead{
+  color: #ffffff !important;
+}
+
+
+body.dyslexia .back-dark {
+  color: #ffffff !important;
+  /* background-color: #6c757d !important; */
+  background-color: RGBA(33,37,41,var(--bs-bg-opacity,1)) !important;
+  border: 1px #ffffff solid;
+}
+
 body.dyslexia .text-bg-light {
   color: #000000 !important;
-  background-color: #eddd6e !important;  
+  background-color: #fbfdd2 !important;  
+}
+
+body.dyslexia .text-bg-dark {
+  color: #ffffff !important;
+  background-color: RGBA(33,37,41,var(--bs-bg-opacity,1)) !important;  
+}
+
+body.dyslexia .flashCard .front {
+  color: #ffffff !important;
+}
+
+body.dyslexia .lead {
+  color: #000000 !important;
 }
 
 input[type="radio"] {
@@ -106,3 +131,111 @@ input[type="radio"]:hover {
   box-shadow: inset 0px 0px 0px 3px #89c5fd, 0px 0px 0px 3px #89c5fd;
   /* background-color: #89c5fd; */
 }
+
+body.dark .card {
+  border: 1px solid #6c757d;
+  border-radius: var(--bs-card-border-radius);
+}
+
+body.dark .card-header {
+  background-color: RGBA(33,37,41,var(--bs-bg-opacity,1)) !important;
+  border: 1px solid #6c757d;
+  border-radius: var(--bs-card-border-radius);
+}
+
+body.dark .card-body {
+  background-color: #313438!important;
+  border: 1px solid #6c757d;
+  border-radius: var(--bs-card-border-radius);
+}
+
+body.dark .bg-light {
+  background-color: RGBA(33,37,41,var(--bs-bg-opacity,1))!important;
+}
+
+
+
+body.dyslexia .card {
+  border: 1px solid #6c757d;
+  border-radius: var(--bs-card-border-radius);
+}
+
+body.dyslexia .card-header {
+  background-color: #fbfdd2 !important;
+  color: #000000 !important;
+  border: 1px solid #6c757d;
+  border-radius: var(--bs-card-border-radius);
+}
+
+body.dyslexia .card-body {
+  background-color: #f8fd89 !important;
+  border: 1px solid #6c757d;
+  border-radius: var(--bs-card-border-radius);
+}
+
+body.dyslexia .bg-light {
+  background-color: #f8fd89 !important;
+}
+
+body.dark .accordion-header {
+  background-color: #2C2E32;
+  color: #f8f9fa;
+}
+
+body.dark .accordion-header:hover {
+  background-color: #495057;
+}
+
+body.dark .accordion-button {
+  background-color: transparent;
+  color: #f8f9fa;
+  border: none;
+}
+
+body.dark .accordion-button:hover {
+  background-color: #495057;
+}
+
+body.dark .accordion-button:not(.collapsed) {
+  background-color: #495057;
+}
+
+body.dark .accordion-body {
+  background-color: #313438;
+  color: #f8f9fa;
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+body.dyslexia .accordion-header {
+  background-color: #fbfdd2;
+  color: #f8f9fa;
+}
+
+body.dyslexia .accordion-header:hover {
+  background-color: #e8ee73;
+}
+
+body.dyslexia .accordion-button {
+  background-color: transparent;
+  color: #000000;
+  border: none;
+}
+
+body.dyslexia .accordion-button:hover {
+  background-color: #e8ee73;
+}
+
+body.dyslexia .accordion-button:not(.collapsed) {
+  background-color: #fbfdd2;
+}
+
+body.dyslexia .accordion-button:not(.collapsed):hover {
+  background-color: #e8ee73;
+}
+
+body.dyslexia .accordion-body {
+  background-color: #f8fd89;
+  color: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
+}
+

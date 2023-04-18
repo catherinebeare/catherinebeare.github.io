@@ -11,7 +11,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
         integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
@@ -20,7 +21,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
         integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"></script>
-    <link rel="stylesheet" type="text/css" href="./CSS/Theme.css">  
+    <link rel="stylesheet" type="text/css" href="./CSS/Theme.css">
 </head>
 
 <body class="mb-5">
@@ -45,68 +46,64 @@
 
         </div>
     </nav>
+
     <div class="container-xl">
-    <div class="container my-1">
-        <div class="p-3 rounded">
-
-            <p> 
-                Binomials can be a tricky topic. Binomials are a fundamental topic in many pure mathematics topics. 
-                This page aims to help you with your understanding of binomials.
-                Before we dive in, let's look at some terms and notation.
-            </p>
-            <h2>What is a Binomial?</h2>
-            <p>A binomial is an algebraic expression that contains <b>two</b> different terms <b>connected by addition or subtraction</b>.</p>
+        <div class="container my-1">
+            <div class="p-3 rounded">
+                <p>
+                    Binomials can be a tricky topic. They are fundamental in many mathematics topics.
+                    This page aims to help you with your understanding of binomials, including binomial expansion and binomial distributions.
+                    Before we dive in, let's look at some terms and notation.
+                </p>
+                <h2>What is a Binomial?</h2>
+                <p>A binomial is an algebraic expression that contains <b>two</b> different terms <b>connected by
+                        addition or subtraction</b>.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded questionBoxes">
-            <p class="lead">Which of the following is a binomial expression?</p>
-            <form autocomplete="off">
-                <div class="row g-3 mb-3 align-items-center">
-                    <!-- <div class="col-auto">
-                        <label for="inputBinomialExpression" class="col-form-label">Answer</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="inputBinomialExpression" class="form-control"
-                            aria-describedby="combinationHelpInline">
-                    </div> -->
-
+        <div class="container my-1 px-5">
+            <div class="text-bg-light p-5 rounded questionBoxes">
+                <p class="lead">Which of the following is a binomial expression?</p>
                 <form autocomplete="off">
-                    <div class="form-check">
-                        <input class="form-check-input" name="whichBinomial" type="radio" id="monomialInput" value="option1">
-                        <label class="form-check-label" for="monomialInput">
-                            \( 3x^2 \)
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" name="whichBinomial" type="radio" id="trinomialInput" value="option2">
-                        <label class="form-check-label" for="trinomialInput">
-                            \( 2x^3 + 3y^5 - 1 \)
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" name="whichBinomial" type="radio" id="binomialInput" value="option3">
-                        <label class="form-check-label" for="binomialInput">
-                            \( 4x + 7 \)
-                        </label>
-                      </div>
+                    <div class="row g-3 mb-3 align-items-center">
+                        <form autocomplete="off">
+                            <div class="form-check">
+                                <input class="form-check-input" name="whichBinomial" type="radio" id="monomialInput"
+                                    value="option1">
+                                <label class="form-check-label" for="monomialInput">
+                                    \( 3x^2 \)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="whichBinomial" type="radio" id="trinomialInput"
+                                    value="option2">
+                                <label class="form-check-label" for="trinomialInput">
+                                    \( 2x^3 + 3y^5 - 1 \)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="whichBinomial" type="radio" id="binomialInput"
+                                    value="option3">
+                                <label class="form-check-label" for="binomialInput">
+                                    \( 4x + 7 \)
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="alert d-none" role="alert" id='binomialExpressionBanner'>
+                        <p><span id="binomialExpressionResult"> </span> \( 3x^2 \) consists of one term, and is not
+                            connected by addition or subtraction (this is called a monomial).
+                            \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (this is an example of a trinomial).
+                            \( 4x + 7 \) is an algebraic expression containing two different terms which are connected
+                            by addition.</p>
+                    </div>
+                    <div class="btn btn-lg btn-primary" role="button" onclick="verifyBinomial()">Submit</div>
                 </form>
-
-                </div>
-
-                <div class="alert d-none" role="alert" id='binomialExpressionBanner'>
-                    <p><span id="binomialExpressionResult"> </span> \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (this is called a monomial).
-                        \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (this is an example of a trinomial).
-                        \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition.</p>
-                </div>
-                
-                <div class="btn btn-lg btn-primary" role="button" onclick="verifyBinomial()">Submit</div>
-            </form>
+            </div>
         </div>
-    </div>
 
-    <!-- <div class="container my-1">
+        <!-- <div class="container my-1">
         <div class="p-3 rounded">        
             <h2>Bernoulli Distribution</h2>
             <p>If I flip one coin, will it land on heads or tails? This is known as a Bernoulli
@@ -115,7 +112,7 @@
         </div>
     </div> -->
 
-    <!-- <div class="container my-1 px-5">
+        <!-- <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded questionBoxes">
             <p class="lead">Click the coin to see the two possible outcomes.</p>
             <div class="coinGrid">
@@ -130,8 +127,8 @@
     </div> -->
 
 
-    <!-- HOW MANY WAYS TO GET ALL HEADS -->
-    <!-- <div class="container my-1 px-5">
+        <!-- HOW MANY WAYS TO GET ALL HEADS -->
+        <!-- <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded">
             <p class="lead">How many ways can we get all heads? </p>
             <form autocomplete="off">
@@ -153,274 +150,342 @@
         </div>
     </div> -->
 
-    <div class="container my-1">
-        <div class="p-3 rounded">
-            <h2>Factorial!</h2>
-            <p>What is factorial? Factorial (denoted "!") is the product
-                of an integer and all the integers below it. For example,</p>
-            \[ 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120. \] 
-            <p> Note: by definition, \(0! = 1 \).</p>
-        </div>
-    </div>
-
-    <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded questionBoxes">
-            <p class="lead">What is the value of 4!? </p>
-            <form autocomplete="off">
-                <div class="row g-3 mb-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="factorialInput" class="col-form-label">Answer</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="factorialInput" class="form-control"
-                            aria-describedby="combinationHelpInline">
-                    </div>
-                </div>
-
-                <div class="alert d-none" role="alert" id='factorialBanner'>
-                    <p><span id="factorialResult"> </span> \(4! = 4 \times 3 \times 2 \times 1 = 24.\)  </p>
-                </div>
-
-                <div class="btn btn-lg btn-primary" role="button" onclick="verifyFactorial()">Submit</div>
-            </form>
-        </div>
-    </div>
-
-    <div class="container my-1">
-        <div class="p-3 rounded">
-            <p> Due to the nature of factorials, we can often cancel before dividing. For example, </p>
-            <div> \[ \begin{aligned}
-                \frac{7!}{4!}
-            
-                &= \frac{7 \times 6 \times 5 \times \cancel{4 \times 3 \times 2 \times 1}}{\cancel{4 \times 3 \times 2 \times 1}} \\
-                &= 7 \times 6 \times 5 \\
-                &= 210 \\
-                \end{aligned} \]
+        <div class="container my-1">
+            <div class="p-3 rounded">
+                <h2>Factorial!</h2>
+                <p>What is factorial? Factorial (denoted "!") is the product
+                    of an integer and all the integers below it. For example,</p>
+                \[ 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120. \]
+                <p> Note: by definition, \(0! = 1 \).</p>
             </div>
-            <p> We will see this cancelling in action when we look at combinatorial notation. </p>
         </div>
-    </div>
 
-    <div class="container my-1">
-        <h2>Binomial Coefficients</h2>
-        <div class="p-3 rounded">
-            <div> \( \begin{aligned} \text{Let } n &= \text{the total number of events}  \\
-            \text{and } k &= \text{the number of desired outcomes.} \\
-            \end{aligned}
-            \)
+        <div class="container my-1 px-5">
+            <div class="text-bg-light p-5 rounded questionBoxes">
+                <p class="lead">What is the value of 4!? </p>
+                <form autocomplete="off">
+                    <div class="row g-3 mb-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="factorialInput" class="col-form-label">Answer</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="factorialInput" class="form-control"
+                                aria-describedby="combinationHelpInline">
+                        </div>
+                    </div>
+
+                    <div class="alert d-none" role="alert" id='factorialBanner'>
+                        <p><span id="factorialResult"> </span> \(4! = 4 \times 3 \times 2 \times 1 = 24.\) </p>
+                    </div>
+
+                    <div class="btn btn-lg btn-primary" role="button" onclick="verifyFactorial()">Submit</div>
+                </form>
             </div>
-        
-            <p>Then we can say the number of ways to get a specific outcome is “n choose k”. We write
-                \[\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\]
-                These values can be calculated using the "\(^nC_r\)" (combinatorial) button on your calulator.
-            <p>These are the <b>coefficients</b> in a binomial expansion.</p>
         </div>
-    </div>
 
-    <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded questionBoxes">
-            <p class="lead">How many different ways are there to flip a coin six times and get heads four of those
-                times?</p>
-            <form autocomplete="off">
-                <div class="row g-3 mb-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="inputN" class="col-form-label">\(n = \)</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="inputN" class="form-control" aria-describedby="combinationHelpInline">
-                    </div>
+        <div class="container my-1">
+            <div class="p-3 rounded">
+                <p> Due to the nature of factorials, we can often cancel before dividing. For example, </p>
+                <div> \[ \begin{aligned}
+                    \frac{7!}{4!}
 
-                    <div class="col-auto">
-                        <p for="inputK" class="col-form-label">\(k =\)</p>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="inputK" class="form-control" aria-describedby="combinationHelpInline">
-                    </div>
+                    &= \frac{7 \times 6 \times 5 \times \cancel{4 \times 3 \times 2 \times 1}}{\cancel{4 \times 3 \times
+                    2 \times 1}} \\
+                    &= 7 \times 6 \times 5 \\
+                    &= 210 \\
+                    \end{aligned} \]
+                </div>
+                <p> We will see this cancelling in action when we look at combinatorial notation. </p>
+            </div>
+        </div>
 
-                    <div class="col-auto">
-                        <p for="inputAns" class="col-form-label">Answer = </p>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="inputNoOfWays" class="form-control" aria-describedby="combinationHelpInline">
-                    </div>
-
+        <div class="container my-1">
+            <h2>Binomial Coefficients</h2>
+            <div class="p-3 rounded">
+                <div> \( \begin{aligned} \text{Let } n &= \text{the total number of events} \\
+                    \text{and } k &= \text{the number of desired outcomes.} \\
+                    \end{aligned}
+                    \)
                 </div>
 
-                <div class="alert d-none" role="alert" id='nAndkBanner'>
-                    <p><span id="nkresult"> </span> The number of events is the total number of coin tosses, giving us \(n=6\). 
-                        We also need the number of times we want to get heads (our specific outcome),
-                        so we have \(k=4\). 
-                        Therefore, there are \(\binom{6}{4} = 15 \) ways to get four heads from six coin tosses.
-                    </p>
-                    <p>In combinatorial notation, 
-                        \[ ^6C_4 = \frac{6!}{(6-4)!4!} = \frac{6 \times 5 \times \cancel{4 \times 3 \times 2 \times 1}}{(2 \times 1) \times \cancel{4 \times 3 \times 2 \times 1}} = \frac{30}{2} = 15.\]
-                    </p>
-                </div>
+                <p>Then we can say the number of ways to get a specific outcome is “n choose k”. We write
+                    \[\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\]
+                    These values can be calculated using the "\(^nC_r\)" (combinatorial) button on your calulator.
+                <p>These are the <b>coefficients</b> in a binomial expansion.</p>
+            </div>
+        </div>
 
-                <div class="btn btn-lg btn-primary" role="button" onclick="verifyNandK()">Submit</div>
-            </form>
+        <div class="container my-1 px-5">
+            <div class="text-bg-light p-5 rounded questionBoxes">
+                <p class="lead">How many different ways are there to flip a coin six times and get heads four of those
+                    times?</p>
+                <form autocomplete="off">
+                    <div class="row g-3 mb-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="inputN" class="col-form-label">\(n = \)</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="inputN" class="form-control"
+                                aria-describedby="combinationHelpInline">
+                        </div>
 
-            <!-- <div class="">
+                        <div class="col-auto">
+                            <p for="inputK" class="col-form-label">\(k =\)</p>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="inputK" class="form-control"
+                                aria-describedby="combinationHelpInline">
+                        </div>
+
+                        <div class="col-auto">
+                            <p for="inputAns" class="col-form-label">Answer = </p>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="inputNoOfWays" class="form-control"
+                                aria-describedby="combinationHelpInline">
+                        </div>
+
+                    </div>
+
+                    <div class="alert d-none" role="alert" id='nAndkBanner'>
+                        <p><span id="nkresult"> </span> The number of events is the total number of coin tosses, giving
+                            us \(n=6\).
+                            We also need the number of times we want to get heads (our specific outcome),
+                            so we have \(k=4\).
+                            Therefore, there are \(\binom{6}{4} = 15 \) ways to get four heads from six coin tosses.
+                        </p>
+                        <p>In combinatorial notation,
+                            \[ ^6C_4 = \frac{6!}{(6-4)!4!} = \frac{6 \times 5 \times \cancel{4 \times 3 \times 2 \times
+                            1}}{(2 \times 1) \times \cancel{4 \times 3 \times 2 \times 1}} = \frac{30}{2} = 15.\]
+                        </p>
+                    </div>
+
+                    <div class="btn btn-lg btn-primary" role="button" onclick="verifyNandK()">Submit</div>
+                </form>
+
+                <!-- <div class="">
                 <p>We need the number of times we want to get heads (heads in the first toss and heads in the second
                     toss),
                     so we have \(k=2\). The number of events is the total number of coin tosses, giving us \(n=2\).
                     Therefore, there is \(\binom{2}{2} = 1 \) way to get all heads from two coin tosses.</p>
             </div> -->
+            </div>
         </div>
-    </div>
 
-    <div class="container my-1">
-        <div class="p-3 rounded">
-            <p> We have seen how the binomial coefficients can be calculated and what they represent.
-                These coefficients can be represented in Pascal's triangle. </p>
+        <div class="container my-1">
+            <div class="p-3 rounded">
+                <p> We have seen how the binomial coefficients can be calculated and what they represent.
+                    These coefficients can be represented in Pascal's triangle. </p>
 
-            <h2>Pascal's Triangle</h2>
-            <p> To construct Pascal's triangle, we begin by placing a 1 in the first row (we call this row 0). 
-                To calculate the next row, we use numbers in the subsequent rows. We add the two numbers directly above 
-                the number we need to calculate. If there are no numbers to the left or right hand side, we place a zero 
-                for that side and proceed with the addition (this means the outer diagonals of the triangle will be 1s). 
-            </p>
-            
-            <div id="triangle"> 
-            <div class="container p-5 rounded back-dark">
-                <div id="instructions">
-                <p class="lead">Can you calculate the 6th row of Pascal's triangle? Change the number of rows to check your answer. </p>
-                <p class="lead">  What about the 10th row?</p>
-                </div>
-                <form id="triangle">
-                    
-                    <!-- <form autocomplete="off"> -->
-                    <div class="row g-3 mb-3 align-items-center d-flex justify-content-center back-dark" style="border-style:none !important;">
-                        <div class="col-auto d-none">
-                            <input type="number" step="0.1" value="1" id="powerInput" />
+                <h2>Pascal's Triangle</h2>
+                <p> To construct Pascal's triangle, we begin by placing a 1 in the first row (we call this row 0).
+                    To calculate the next row, we use numbers in the subsequent rows. We add the two numbers directly
+                    above
+                    the number we need to calculate. If there are no numbers to the left or right hand side, we place a
+                    zero
+                    for that side and proceed with the addition (this means the outer diagonals of the triangle will be
+                    1s).
+                </p>
+
+                <div id="triangle">
+                    <div class="container p-5 rounded back-dark">
+                        <div id="instructions">
+                            <p class="lead">Can you calculate the 6th row of Pascal's triangle? Change the number of
+                                rows to check your answer. </p>
+                            <p class="lead"> What about the 10th row?</p>
                         </div>
-                        <div class="col-auto d-none">
-                            <p for="" class="col-form-label">Highlight Multiples of</p>
-                        </div>
-                        <div class="col-auto d-none">
-                            <form autocomplete="off">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="multiples" type="radio" id="times2" value="2">
-                                    <label class="form-check-label" for="times2">
-                                        2
-                                    </label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="multiples" type="radio" id="times3" value="3">
-                                    <label class="form-check-label" for="times3">
-                                        3
-                                    </label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="multiples" type="radio" id="times4" value="4">
-                                    <label class="form-check-label" for="times4">
-                                        4
-                                    </label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="multiples" type="radio" id="times5" value="5">
-                                    <label class="form-check-label" for="times5">
-                                        5
-                                    </label>
-                                  </div>
-                            </form>
-                        </div>
-                        <div class="alert d-none" role="alert" id='multiplesBanner'>
-                            <!-- <p><span id="multiplesResult"> </span> \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (this is called a monomial).
+                        <form id="triangle">
+
+                            <!-- <form autocomplete="off"> -->
+                            <div class="row g-3 mb-3 align-items-center d-flex justify-content-center back-dark"
+                                style="border-style:none !important;">
+                                <div class="col-auto d-none">
+                                    <input type="number" step="0.1" value="1" id="powerInput" />
+                                </div>
+                                <div class="col-auto d-none">
+                                    <p for="" class="col-form-label">Highlight Multiples of</p>
+                                </div>
+                                <div class="col-auto d-none">
+                                    <form autocomplete="off">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="multiples" type="radio" id="times2"
+                                                value="2">
+                                            <label class="form-check-label" for="times2">
+                                                2
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="multiples" type="radio" id="times3"
+                                                value="3">
+                                            <label class="form-check-label" for="times3">
+                                                3
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="multiples" type="radio" id="times4"
+                                                value="4">
+                                            <label class="form-check-label" for="times4">
+                                                4
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="multiples" type="radio" id="times5"
+                                                value="5">
+                                            <label class="form-check-label" for="times5">
+                                                5
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="alert d-none" role="alert" id='multiplesBanner'>
+                                    <!-- <p><span id="multiplesResult"> </span> \( 3x^2 \) consists of one term, and is not connected by addition or subtraction (this is called a monomial).
                                 \( 2x^3 + 3y^5 - 1 \) consists of 3 terms (this is an example of a trinomial).
                                 \( 4x + 7 \) is an algebraic expression containing two different terms which are connected by addition.</p> -->
-                        </div>
-                        <div class="col-auto">
-                            <p for="totalInput" class="col-form-label">No. of Rows</p>
-                        </div>
-                        <div class="col-auto">
-                            <input type="number" min="1" max="10" step="1" value="5" id="totalInput" />
-                        </div>
-                        <div class="col-auto">
-                            <div class="btn btn-lg btn-primary" role="button" id="calculate">Go</div>
-                        </div>
+                                </div>
+                                <div class="col-auto">
+                                    <p for="totalInput" class="col-form-label">No. of Rows</p>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="number" min="1" max="10" step="1" value="5" id="totalInput" />
+                                </div>
+                                <div class="col-auto">
+                                    <div class="btn btn-lg btn-primary" role="button" id="calculate">Go</div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="result"></div>
                     </div>
-                </form>
-                <div id="result"></div>
-            </div>
+                </div>
+                <br>
+                <p>There are some interesting patterns in Pascal's triangle involving the location of multiples. To
+                    investigate these patterns, click <a href="expand.html">here.</a></p>
             </div>
         </div>
-    </div>
 
-    <!-- <div class="container my-1 px-5">
+        <!-- <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded">
             <p class="lead">Can you spot any patterns in the triangle?</p>
         </div>
     </div> -->
 
-    <!-- <div class="container my-1 px-5">
+        <!-- <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded">
             <p class="lead">What are these actually the coefficients of?</p>
         </div>
     </div> -->
 
-    <div class="container my-1">
-        <div class="p-3 rounded">
-            <h2> Binomial Expansion</h2>
-            
-            <p> We know that a binomial expression contains two terms, such as \((1+x)\). 
-                If we want to square this bracket, we can easily expand it.
-                However, what if we want to calculate \((1+x)^8\)? This would be extremely time consuming.
-                This is where the binomial expansion comes in useful. </p>
-                
-            <p class="lead">Positive Integer Powers</p>
+        <div class="container my-1">
+            <div class="p-3 rounded">
+                <h2> Binomial Expansion</h2>
+
+                <p> We know that a binomial expression contains two terms, such as \((1+x)\).
+                    If we want to square this bracket, we can easily expand it.
+                    However, what if we want to calculate \((1+x)^8\)? This would be extremely time consuming.
+                    This is where the binomial expansion formula comes in useful. 
+                </p>
+
                 <p>We can calculate the binomial expansion for positive integer powers using the following formula:</p>
-            
-            \[ (a+b)^n =a^n + \binom{n}{1}a^{n-1}b + \binom{n}{2}a^{n-2}b^2 + ... + \binom{n}{r}a^{n-r}b^r + ... + b^n, \]
-            <div>
-                    <!-- \text{where } n \in \mathbb{N} &= \ \text{the number of trials, and } n \in \mathbb{N}, \\
-                    k &= \ \text{the number of successes},  \\
-                    x &= \ \text{the probability of success on a single trial,} \\ 
-                    a &= \ \text{the probability of failure on a single trial.} \\  -->
-                    <p>where \(n \in \mathbb{N}\) and \( \binom{n}{r} \) is as defined in the binomial coefficient above.</p> 
-            </div> 
-                   
-            <div> 
-                <br>
-                <br>
-                <p> <b>Example 1:</b> Write down the binomial expansion for \( (1 + x)^4 \).</p>
-                \[ \begin{aligned}
-                 (1 + x)^4 &= \binom{4}{0} 1 + \binom{4}{1} x + \binom{4}{2} x^2 + \binom{4}{3} x^3 + \binom{4}{4} x^4  \\
-                 &= 1 + 4x + 6x^2 + 4x^3 + x^4 \\ 
-                \end{aligned} \]
-                <p>Notice that the coefficients are row 4 from Pascal's triangle, as the binomial is raised to the power of 4.</p>
-            </div>
-            <div>
-                <p><b>Example 2:</b> Find the binomial expansion for \((1+2x)^3\).</p>
-                \[ \begin{aligned}
-                (1 + 2x)^3 &= \binom{3}{0} 1 + \binom{3}{1} (2x) + \binom{3}{2} (2x)^2 + \binom{3}{3} (2x)^3 \\
-                 &= 1 + 3(2x) + 3(2x)^2 + (2x)^3 \\
-                 &= 1 + 6x + 12x^2 + 8x^3 \\
-                \end{aligned}
-                \]
-                <p>Here, \(b=2x\). Don't forget that the indices affect every number inside the brackets, including the 2.</p>
-            </div>
-            <div>
-                <p><b>Example 3:</b> Expand \((2+x)^5\). </p>
-                \[ \begin{aligned} 
-                (2 + x)^5 &= \binom{5}{0} 2^5 + \binom{5}{1} x \times 2^4 + \binom{5}{2} x^2 \times 2^3 + \binom{5}{3} x^3 \times 2^2 + \binom{5}{4} x^4 \times 2 + \binom{5}{5} x^5 \\
-                 &= 32 +  80x + 80x^2 + 40x^3 + 10x^4 + x^5 \\
-                 \end{aligned}\]
-            </div>
-            <p>
-                What happens when our terms are connected by subtraction? We use the same formula, taking care with negative signs.
-                This is easiest to see with an example. 
-                <p> </p>
 
-            <div> <p> <b>Example 4:</b> Expand \((7-x)^4\). </p>
-                \[ \begin{aligned} 
-                (7-x)^4 &= \binom{4}{0} 7^4 + \binom{4}{1} 7^3 \times -x + \binom{4}{2} 7^2 \times (-x)^2+ \binom{4}{3} 7 \times (-x)^3   + \binom{4}{4} (-x)^4 \\
-                &= 2401  - 1372 x + 294 x^2 - 28 x^3 + x^4   \\
-                \end{aligned} \]</div>
-                
-            </p>
+                \[ (a+b)^n =a^n + \binom{n}{1}a^{n-1}b + \binom{n}{2}a^{n-2}b^2 + ... + \binom{n}{r}a^{n-r}b^r + ... +
+                b^n, \]
+                <div>
+                    <p>where \(n \in \mathbb{N}\) and \( \binom{n}{r} \) is as defined in the binomial coefficient
+                        above.</p>
+                </div>
 
-            <!-- <div class="container">
+                <p>Click the question to reveal the answer.</p>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <p class="mb-0"><b>Example 1: </b> Write down the binomial expansion for \( (1 + x)^4
+                                    \).</p>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                \[ \begin{aligned}
+                                (1 + x)^4 &= \binom{4}{0} 1 + \binom{4}{1} x + \binom{4}{2} x^2 + \binom{4}{3} x^3 +
+                                \binom{4}{4} x^4 \\
+                                &= 1 + 4x + 6x^2 + 4x^3 + x^4 \\
+                                \end{aligned} \]
+                                <p>Notice that the coefficients are row 4 from Pascal's triangle, as the binomial is
+                                    raised to the power of 4.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <p class="mb-0"><b>Example 2:</b> Find the binomial expansion for \((1+2x)^3\).</p>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                \[ \begin{aligned}
+                                (1 + 2x)^3 &= \binom{3}{0} 1 + \binom{3}{1} (2x) + \binom{3}{2} (2x)^2 + \binom{3}{3}
+                                (2x)^3 \\
+                                &= 1 + 3(2x) + 3(2x)^2 + (2x)^3 \\
+                                &= 1 + 6x + 12x^2 + 8x^3 \\
+                                \end{aligned}
+                                \]
+                                <p>Here, \(b=2x\). Don't forget that the indices affect every number inside the
+                                    brackets, including the 2.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <p class="mb-0"><b>Example 3:</b> Expand \((2+x)^5\), giving your answer in increasing
+                                    powers of \(x\).</p>
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                \[ \begin{aligned}
+                                (2 + x)^5 &= \binom{5}{0} 2^5 + \binom{5}{1} x \times 2^4 + \binom{5}{2} x^2 \times 2^3
+                                + \binom{5}{3} x^3 \times 2^2 + \binom{5}{4} x^4 \times 2 + \binom{5}{5} x^5 \\
+                                &= 32 + 80x + 80x^2 + 40x^3 + 10x^4 + x^5 \\
+                                \end{aligned}\]
+                                <p> Note that this question asks for an answer with increasing powers of \(x\). This
+                                    means that you should start with the \(x^0\) term, followed by \(x^1\), \(x^2 ,
+                                    \dots , x^5\).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <p class="mb-0"><b>Example 4:</b> Expand \((7-x)^4\), giving your answer in decreasing
+                                    powers of \(x\).</p>
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                \[ \begin{aligned}
+                                (7-x)^4 &= \binom{4}{4} (-x)^4 + \binom{4}{3} 7 \times (-x)^3 + \binom{4}{2} 7^2 \times
+                                (-x)^2 + \binom{4}{1} 7^3 \times -x + \binom{4}{0} 7^4 \\
+                                &= x^4 - 28 x^3 + 294 x^2 - 1372 x + 2401 \\
+                                \end{aligned} \]
+                                <p> Take extra care when dealing with terms connected by subtraction. In this example,
+                                    \(b=-x\), so the terms in our answer have alternating signs (the term is negative
+                                    when the power is odd).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="container">
         <p class="lead">Negative Integer Powers</p>
         <p> The binomial theorem can be extended to cases where \(n\) is negative, but we must first
             manipulate the given expression to the following form, so that it is suitable for expansion:
@@ -436,19 +501,8 @@
             \((1+x)^{-n} = \sum_{k=0}^{\infty} \frac{(-n)(-n-1)(-n-2)...(-n-k+1)}{k!} x^k\)
         </div>
         <p>This infinite series converges if \(|x| < 1\), and its expansion can be used to compute the binomial expression with negative integer powers.</p> -->
-    </div>
-        </div> 
-    </div>
 
-
-    <!-- <div class="container my-1">
-        <div class="p-3 rounded">
-            <h2>Using Binomial Expansion for Approximations</h2>
-            <p> </p>
-        </div>
-    </div> -->
-
-    <!-- <div class="container my-1">
+        <!-- <div class="container my-1">
         <div class="p-3 rounded">        
             <h2>Bernoulli Distribution</h2>
             <p>If I flip one coin, will it land on heads or tails? This is known as a Bernoulli
@@ -457,7 +511,7 @@
         </div>
     </div>  -->
 
-    <!-- <div class="container my-1 px-5">
+        <!-- <div class="container my-1 px-5">
         <div class="text-bg-light p-5 rounded questionBoxes">
             <p class="lead">Click the coin to see the two possible outcomes.</p>
             <div class="coinGrid">
@@ -471,359 +525,482 @@
         </div>
     </div> -->
 
-    <div class="container my-1">
-        <div class="p-3 rounded">
-            <h2> Binomial Distribution </h2>
-            <p> 
-                There is a strong connection between binomial expansion and binomial probabilities, which 
-                can be represented using the binomial distribution. The binomial distribution 
-                is a discrete probability distribution, which models the number of success in \(n\) independent trials.
-                Given two coins, what are the possible outcomes when we flip both coins?
-            </p>
+        <div class="container my-1">
+            <div class="p-3 rounded">
+                <h2> Binomial Distribution </h2>
+                <p>
+                    There is a strong connection between binomial expansion and binomial probabilities, which
+                    can be represented using the binomial distribution. The binomial distribution
+                    is a discrete probability distribution, which models the number of success in \(n\) independent
+                    trials.
+                    Given two coins, what are the possible outcomes when we flip both coins?
+                </p>
 
-            <div class="container my-1 px-5">
-                <div class="text-bg-light p-5 rounded questionBoxes">
-                    <h3 class="lead">Flip the coins until you have each of the four possible outcomes.</h3>
-                                            
-                    <div class="coinGrid">
-                        <div class="coinRow">
-                            <div class="coinLabel align-items-center d-flex justify-content-center"> 
-                                <p class="mt-3"> Outcome 1 </p>
+                <div class="container my-1 px-5">
+                    <div class="text-bg-light p-5 rounded questionBoxes">
+                        <h3 class="lead">Flip the coins until you have each of the four possible outcomes.</h3>
+
+                        <div class="coinGrid">
+                            <div class="coinRow">
+                                <div class="coinLabel align-items-center d-flex justify-content-center">
+                                    <p class="mt-3"> Outcome 1 </p>
+                                </div>
+                                <div class="coin heads" onclick="flipCoin(this)">
+                                    <div class="front">Heads</div>
+                                    <div class="back">Tails</div>
+                                </div>
+                                <div class="coin heads" onclick="flipCoin(this)">
+                                    <div class="front">Heads</div>
+                                    <div class="back">Tails</div>
+                                </div>
                             </div>
-                            <div class="coin heads" onclick="flipCoin(this)">
-                                <div class="front">Heads</div>
-                                <div class="back">Tails</div>
+                            <div class="coinRow">
+                                <div class="coinLabel align-items-center d-flex justify-content-center">
+                                    <p class="mt-3"> Outcome 2 </p>
+                                </div>
+                                <div class="coin heads" onclick="flipCoin(this)">
+                                    <div class="front">Heads</div>
+                                    <div class="back">Tails</div>
+                                </div>
+                                <div class="coin heads" onclick="flipCoin(this)">
+                                    <div class="front">Heads</div>
+                                    <div class="back">Tails</div>
+                                </div>
                             </div>
-                            <div class="coin heads" onclick="flipCoin(this)">
-                                <div class="front">Heads</div>
-                                <div class="back">Tails</div>
+                            <div class="coinRow">
+                                <div class="coinLabel align-items-center d-flex justify-content-center">
+                                    <p class="mt-3"> Outcome 3 </p>
+                                </div>
+                                <div class="coin heads" onclick="flipCoin(this)">
+                                    <div class="front">Heads</div>
+                                    <div class="back">Tails</div>
+                                </div>
+                                <div class="coin heads" onclick="flipCoin(this)">
+                                    <div class="front">Heads</div>
+                                    <div class="back">Tails</div>
+                                </div>
+                            </div>
+                            <div class="coinRow">
+                                <div class="coinLabel align-items-center d-flex justify-content-center">
+                                    <p class="mt-3"> Outcome 4 </p>
+                                </div>
+                                <div class="coin heads" onclick="flipCoin(this)">
+                                    <div class="front">Heads</div>
+                                    <div class="back">Tails</div>
+                                </div>
+                                <div class="coin heads" onclick="flipCoin(this)">
+                                    <div class="front">Heads</div>
+                                    <div class="back">Tails</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="coinRow">
-                            <div class="coinLabel align-items-center d-flex justify-content-center"> 
-                                <p class="mt-3"> Outcome 2 </p>
-                            </div>
-                            <div class="coin heads" onclick="flipCoin(this)">
-                                <div class="front">Heads</div>
-                                <div class="back">Tails</div>
-                            </div>
-                            <div class="coin heads" onclick="flipCoin(this)">
-                                <div class="front">Heads</div>
-                                <div class="back">Tails</div>
-                            </div>
-                        </div>
-                        <div class="coinRow">
-                            <div class="coinLabel align-items-center d-flex justify-content-center"> 
-                                <p class="mt-3"> Outcome 3 </p>
-                            </div>
-                            <div class="coin heads" onclick="flipCoin(this)">
-                                <div class="front">Heads</div>
-                                <div class="back">Tails</div>
-                            </div>
-                            <div class="coin heads" onclick="flipCoin(this)">
-                                <div class="front">Heads</div>
-                                <div class="back">Tails</div>
-                            </div>
-                        </div>
-                        <div class="coinRow">
-                            <div class="coinLabel align-items-center d-flex justify-content-center"> 
-                                <p class="mt-3"> Outcome 4 </p>
-                            </div>
-                            <div class="coin heads" onclick="flipCoin(this)">
-                                <div class="front">Heads</div>
-                                <div class="back">Tails</div>
-                            </div>
-                            <div class="coin heads" onclick="flipCoin(this)">
-                                <div class="front">Heads</div>
-                                <div class="back">Tails</div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="alert d-none" role="alert" id='coinPermutationsBanner'>
-                        <p><span id="permutationResult"> </span> The possible combinations are heads and heads,
-                        heads and tails, tails and heads, and tails and tails. We can arrange these pairs in any order, as long as each pair is represented once.
-                        <!-- The order of the outcomes does not matter, however the order within each outcome
+
+                        <div class="alert d-none" role="alert" id='coinPermutationsBanner'>
+                            <p><span id="permutationResult"> </span> The possible combinations are heads and heads,
+                                heads and tails, tails and heads, and tails and tails. We can arrange these pairs in any
+                                order, as long as each pair is represented once.
+                                <!-- The order of the outcomes does not matter, however the order within each outcome
                         does matter. We can acheive these results in any order. -->
-                        </p>
+                            </p>
+                        </div>
+
+                        <div class="btn btn-lg btn-primary" role="button" onclick="verifyCoinGrid()">Submit</div>
                     </div>
-        
-                    <div class="btn btn-lg btn-primary" role="button" onclick="verifyCoinGrid()">Submit</div>
+                </div>
+                <br>
+                <p>There are four possible outcomes. For the example above, we are concerned with the order of the
+                    outcomes (this is called a <b> permutation</b>).
+                    This means getting heads then tails is different from getting tails then heads.
+                    However, for a binomial coefficient, we do not care about the order, we only care about the
+                    <b>combination</b> of outcomes.
+                    For example, if I want the number of ways to get heads once and tails once, my number of desired
+                    outcomes is 2
+                    (heads then tails, or tails then heads). For more information on combinations and permutations,
+                    click
+                    <a href="expand.html">here.</a>
+                </p>
+
+
+
+                <p> It is easy to list all possible outcomes when we only have two coins.
+                    However, what if we have 6 coins? Or 200? We can use a formula to calculate the probabilities of
+                    each of these outcomes.
+                    The probability of observing \(k\) successes in \(n\) trials is given by
+                    \[P(X=k) = \binom{n}{k}p^k(1-p)^{n-k},\]
+                </p>
+                <div>\( \begin{aligned}
+                    \text{where } n &= \ \text{the number of trials,} \\
+                    k &= \ \text{the number of successes}, \\
+                    p &= \ \text{the probability of success on a single trial.} \\
+                    \end{aligned} \)
                 </div>
             </div>
-            
-            <p>There are four possible outcomes. For the example above, we are concerned with the order of the outcomes (this is called a <b> permutation</b>).
-                This means getting heads then tails is different from getting tails then heads. 
-                However, for a binomial coefficient, we do not care about the order, we only care about the <b>combination</b> of outcomes.
-                For example, if I want the number of ways to get heads once and tails once, my number of desired outcomes is 2
-                (heads then tails, or tails then heads). For more information on combinations and permutations, click 
-                <a href="expand.html">here.</a></p>
-            
-                
-
-            <p> It is easy to list all possible outcomes when we only have two coins.
-                However, what if we have 6 coins? Or 200? We can use a formula to calculate the probabilities of each of these outcomes.  
-                The probability of observing \(k\) successes in \(n\) trials is given by
-                \[P(X=k) = \binom{n}{k}p^k(1-p)^{n-k},\]
-            </p>
-            <div>\( \begin{aligned} 
-                \text{where } n &= \ \text{the number of trials,} \\
-                k &= \ \text{the number of successes},  \\
-                p &= \ \text{the probability of success on a single trial.} \\ 
-            \end{aligned} \) 
-            </div> 
         </div>
-    </div>
 
-    <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded questionBoxes">
-            <p class="lead">With 9 coin tosses, what is the probability that 5 are heads? Give you answer as a percentage, to 2 decimal places.</p>
-            <form autocomplete="off">
-                <div class="row g-3 mb-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="inputNProb" class="col-form-label">\(n = \)</label>
+        <div class="container my-1 px-5">
+            <div class="text-bg-light p-5 rounded questionBoxes">
+                <p class="lead">With 9 coin tosses, what is the probability that 5 are heads? Give you answer as a
+                    percentage, to 2 decimal places.</p>
+                <form autocomplete="off">
+                    <div class="row g-3 mb-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="inputNProb" class="col-form-label">\(n = \)</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="inputNProb" class="form-control" aria-describedby="HelpInline">
+                        </div>
+
+                        <div class="col-auto">
+                            <p for="inputKProb" class="col-form-label">\(k =\)</p>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="inputKProb" class="form-control"
+                                aria-describedby="combinationHelpInline">
+                        </div>
+                        <div class="col-auto">
+                            <p for="inputPProb" class="col-form-label">\(p =\)</p>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="inputPProb" class="form-control" aria-describedby="HelpInline">
+                        </div>
                     </div>
-                    <div class="col-auto">
-                        <input type="text" id="inputNProb" class="form-control" aria-describedby="HelpInline">
+                    <div class="row mb-3">
+                        <div class="col-auto">
+                            <p for="inputAnsProb" class="col-form-label">Answer = </p>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="inputAnsProb" class="form-control"
+                                aria-describedby="combinationHelpInline">
+                        </div>
+                        <div class="col-auto p-0">
+                            <p class="col-form-label">\(\%\)</p>
+                        </div>
+                    </div>
+                    <div class="alert d-none" role="alert" id='probBanner'>
+                        <p><span id="probResult"> </span> The number of trials is the total number of coin tosses,
+                            giving us \(n=9\).
+                            We also need the number of successes, which is the number of times we want to get heads,
+                            \(k=5\). The probability of success for a coin toss is always \(0.5\).
+                            Therefore, the probability of getting \(5\) heads from \(9\) coin tosses is \[P(5 \text{
+                            heads from } 9 \text{ tosses}) = \binom{9}{5} 0.5^5(1-0.5)^4 = 0.24609 = 24.61\%\]
+                        </p>
                     </div>
 
-                    <div class="col-auto">
-                        <p for="inputKProb" class="col-form-label">\(k =\)</p>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="inputKProb" class="form-control" aria-describedby="combinationHelpInline">
-                    </div>
-                    <div class="col-auto">
-                        <p for="inputPProb" class="col-form-label">\(p =\)</p>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="inputPProb" class="form-control" aria-describedby="HelpInline">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-auto">
-                        <p for="inputAnsProb" class="col-form-label">Answer = </p>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="inputAnsProb" class="form-control" aria-describedby="combinationHelpInline">
-                    </div>
-                    <div class="col-auto p-0">
-                        <p class="col-form-label">\(\%\)</p>
-                    </div>
-                </div>
-                <div class="alert d-none" role="alert" id='probBanner'>
-                    <p><span id="probResult"> </span> The number of trials is the total number of coin tosses, giving us \(n=9\). 
-                        We also need the number of successes, which is the number of times we want to get heads,
-                        \(k=5\). The probability of success for a coin toss is always \(0.5\).
-                        Therefore, the probability of getting \(5\) heads from \(9\) coin tosses is \[P(5 \text{ heads from } 9 \text{ tosses }) = \binom{9}{5} 0.5^5(1-0.5)^4 =  0.24609 = 24.61\%\]
-                    </p>
-                </div>
-
-                <div class="btn btn-lg btn-primary" role="button" onclick="verifyProbability()">Submit</div>
-            </form>
+                    <div class="btn btn-lg btn-primary" role="button" onclick="verifyProbability()">Submit</div>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <div class="container my-1">
-        <div class="p-3 rounded">
-            <h2> When to use a Binomial Distribution </h2>
-            <p> There are a number of conditions which need to be satisfied in order to use a binomial distribution. We can use the mneumonic BINS to help up remember.</p>
-                <ol> 
-                    <li> 
+        <div class="container my-1">
+            <div class="p-3 rounded">
+                <h2> When to use a Binomial Distribution </h2>
+                <p> There are a number of conditions which need to be satisfied in order to use a binomial distribution.
+                    We can use the mnemonic BINS to help us remember.</p>
+                <ol>
+                    <li>
                         <p><b>B</b>inary number of outcomes. There are 2 possible outcomes - success and failure.</p>
                     </li>
-                    <li> 
-                        <p><b>I</b>ndependent trials. Knowing the outcome of one trial must not tell us anything about the next.</p>
+                    <li>
+                        <p><b>I</b>ndependent trials. Knowing the outcome of one trial must not tell us anything about
+                            the next.</p>
                     </li>
-                    <li> 
+                    <li>
                         <p><b>N</b>umber of trials. The number of trials, \(n\), must be fixed in advance.</p>
                     </li>
-                    <li> 
+                    <li>
                         <p><b>S</b>ame probabilty of success for each trial.</p>
                     </li>
-                    <!-- <li> 
-                        <p class="lead">Fixed number of trials , \(n\)</p>
-                    </li>
-                    <li> 
-                        <p class="lead">Independent trials</p>
-                    </li>
-                    <li> 
-                        <p class="lead">Two different classifications</p>
-                    </li>
-                    <li> 
-                        <p class="lead">The probabilty of success remains unchanged for all trials</p>
-                    </li> -->
                 </ol>
-    </div>
-
-    <div class="container my-1 px-5">
-        <div class="text-bg-light p-5 rounded questionBoxes">
-            <div class="">
-                <h4>Which of the following are the correct examples for each of the conditions?</h4>
-                <p class="lead">Fixed number of trials</p>
-                <form autocomplete="off">
-                    <div class="row g-3 mb-3 align-items-center">
-                    <form autocomplete="off">
-                        <div class="form-check">
-                            <input class="form-check-input" name="usesQ1" type="radio" id="usesQ1Input1" value="option1">
-                            <label class="form-check-label" for="usesQ1Input1">
-                                Deciding to flip a coin 10 times and actually flipping it 10 times.
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" name="usesQ1" type="radio" id="usesQ1Input2" value="option2">
-                            <label class="form-check-label" for="usesQ1Input2">
-                                Deciding to flip a coin 10 times but then getting bored and only flipping it 5 times.
-                            </label>
-                          </div>
-                    </form>
-    
-                    </div>
-    
-                    <div class="alert d-none" role="alert" id='usesQ1Banner'>
-                        <p><span id="usesQ1Result"> </span> The process being investigated must have a clearly defined number of trials that do not vary. 
-                            We cannot alter this number midway through our analysis. </p>
-                    </div>
-                </form>
             </div>
+        </div>
 
-            <div class="">
-                <p class="lead">Independent Events</p>
-                <form autocomplete="off">
-                    <div class="row g-3 mb-3 align-items-center">
+        <div class="container my-1 px-5">
+            <div class="text-bg-light p-5 rounded questionBoxes">
+                <div>
+                    <h4>Which of the following are the correct examples for each of the conditions?</h4>
+                    <div>
+                        <p class="lead">Binary Number of Outcomes</p>
+                        <form autocomplete="off">
+                            <div class="row g-3 mb-3 align-items-center">
+                                <form autocomplete="off">
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="usesQ3" type="radio" id="usesQ3Input1"
+                                            value="option1">
+                                        <label class="form-check-label" for="usesQ3Input1">
+                                            Rolling a die.
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="usesQ3" type="radio" id="usesQ3Input2"
+                                            value="option2">
+                                        <label class="form-check-label" for="usesQ3Input2">
+                                            Rolling a 4 on a die.
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="alert d-none" role="alert" id='usesQ3Banner'>
+                                <p><span id="usesQ3Result"> </span> There are only two outcomes, success or failure.
+                                    In this case,
+                                    the two possible outcomes are rolling a 4 and not rolling a 4.</p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="">
+                        <p class="lead">Independent Events</p>
+                        <form autocomplete="off">
+                            <div class="row g-3 mb-3 align-items-center">
+                                <form autocomplete="off">
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="usesQ2" type="radio" id="usesQ2Input1"
+                                            value="option1">
+                                        <label class="form-check-label" for="usesQ2Input1">
+                                            Removing cards from a deck without replacement.
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="usesQ2" type="radio" id="usesQ2Input2"
+                                            value="option2">
+                                        <label class="form-check-label" for="usesQ2Input2">
+                                            Tossing a coin.
+                                        </label>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                            <div class="alert d-none" role="alert" id='usesQ2Banner'>
+                                <p><span id="usesQ2Result"> </span> The outcome of a trial should not be effected by
+                                    the outcome of the previous trial.
+                                    Choosing a card and not replacing it changes the probability for the next event,
+                                    whereas the probability of each outcome of tossing a coin will always 0.5.
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <p class="lead">Fixed Number of Trials</p>
                     <form autocomplete="off">
-                        <div class="form-check">
-                            <input class="form-check-input" name="usesQ2" type="radio" id="usesQ2Input1" value="option1">
-                            <label class="form-check-label" for="usesQ2Input1">
-                                Removing cards from a deck without replacement.
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" name="usesQ2" type="radio" id="usesQ2Input2" value="option2">
-                            <label class="form-check-label" for="usesQ2Input2">
-                                Tossing a coin.
-                            </label>
-                          </div>
-                    </form>
-    
-                    </div>
-    
-                    <div class="alert d-none" role="alert" id='usesQ2Banner'>
-                        <p><span id="usesQ2Result"> </span> The outcome of a trial should not be effected by the outcome of the previous trial.
-                            Choosing a card and not replacing it changes the probability for the next event, whereas the probability of each outcome of tossing a coin will always 0.5.
-                        </p>
-                    </div>
-                </form>
-            </div>
+                        <div class="row g-3 mb-3 align-items-center">
+                            <form autocomplete="off">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="usesQ1" type="radio" id="usesQ1Input1"
+                                        value="option1">
+                                    <label class="form-check-label" for="usesQ1Input1">
+                                        Deciding to flip a coin 10 times and actually flipping it 10 times.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="usesQ1" type="radio" id="usesQ1Input2"
+                                        value="option2">
+                                    <label class="form-check-label" for="usesQ1Input2">
+                                        Deciding to flip a coin 10 times but then getting bored and only flipping it
+                                        5 times.
+                                    </label>
+                                </div>
+                            </form>
 
-            <div class="">
-                <p class="lead">Two Outcomes</p>
-                <form autocomplete="off">
-                    <div class="row g-3 mb-3 align-items-center">
+                        </div>
+
+                        <div class="alert d-none" role="alert" id='usesQ1Banner'>
+                            <p><span id="usesQ1Result"> </span> The process being investigated must have a clearly
+                                defined number of trials that do not vary.
+                                We cannot alter this number midway through our analysis. </p>
+                        </div>
+                    </form>
+                </div>
+
+                <div>
+                    <p class="lead">Same Probability of Success</p>
                     <form autocomplete="off">
-                        <div class="form-check">
-                            <input class="form-check-input" name="usesQ3" type="radio" id="usesQ3Input1" value="option1">
-                            <label class="form-check-label" for="usesQ3Input1">
-                                Rolling a die.
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" name="usesQ3" type="radio" id="usesQ3Input2" value="option2">
-                            <label class="form-check-label" for="usesQ3Input2">
-                                Rolling a 4 on a die.
-                            </label>
-                          </div>
-                    </form>
-    
-                    </div>
-    
-                    <div class="alert d-none" role="alert" id='usesQ3Banner'>
-                        <p><span id="usesQ3Result"> </span> There are only two outcomes, success or failure. In this case, 
-                        the two possible outcomes are rolling a 4 and not rolling a 4.</p>
-                    </div>
-                </form>
-            </div>
+                        <div class="row g-3 mb-3 align-items-center">
+                            <form autocomplete="off">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="usesQ4" type="radio" id="usesQ4Input1"
+                                        value="option1">
+                                    <label class="form-check-label" for="usesQ4Input1">
+                                        Guessing the answer on a multiple choice test with 4 options per question.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="usesQ4" type="radio" id="usesQ4Input2"
+                                        value="option2">
+                                    <label class="form-check-label" for="usesQ4Input2">
+                                        Guessing the answer on a test that is half multiple choice and half
+                                        true/false questions.
+                                    </label>
+                                </div>
+                            </form>
 
-            <div class="">
-                <p class="lead">Constant Probability</p>
-                <form autocomplete="off">
-                    <div class="row g-3 mb-3 align-items-center">
-                    <form autocomplete="off">
-                        <div class="form-check">
-                            <input class="form-check-input" name="usesQ4" type="radio" id="usesQ4Input1" value="option1">
-                            <label class="form-check-label" for="usesQ4Input1">
-                                Guessing the answer on a multiple choice test with 4 options per question.
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" name="usesQ4" type="radio" id="usesQ4Input2" value="option2">
-                            <label class="form-check-label" for="usesQ4Input2">
-                                Guessing the answer on a test that is half multiple choice and half true/false questions.
-                            </label>
-                          </div>
-                    </form>
-    
-                    </div>
-    
-                    <div class="alert d-none" role="alert" id='usesQ4Banner'>
-                        <p><span id="usesQ4Result"> </span> The probabilities of successful trials must remain the same throughout the process. The probability changes
-                        to 0.5 for true/false questions.</p>
-                    </div>
-                </form>
-            </div>
-    
-            <div class="btn btn-lg btn-primary" role="button" onclick="verifyUses()">Submit</div>
+                        </div>
 
+                        <div class="alert d-none" role="alert" id='usesQ4Banner'>
+                            <p><span id="usesQ4Result"> </span> The probabilities of successful trials must remain
+                                the same throughout the process. The probability changes
+                                to 0.5 for true/false questions.</p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="btn btn-lg btn-primary" role="button" onclick="verifyUses()">Submit</div>
+
+            </div>
+        </div>
+
+
+
+        <div class="container my-1">
+            <div class="p-3 rounded">
+                <p> The following example is taken from the CCEA GCE Applied Mathematics 2022 paper. </p>
+                <p><b>Question:</b> It is known that one in six seeds in a large batch will not germinate when
+                    planted.</p>
+                <div class="accordion" id="workedExampleAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOneWEA" aria-expanded="false" aria-controls="collapseOneWEA">
+                                <p class="mb-0">i) Write down the probability that a seed from the batch will
+                                    germinate. (1 mark)</p>
+                            </button>
+                        </h2>
+                        <div id="collapseOneWEA" class="accordion-collapse collapse"
+                            data-bs-parent="#workedExampleAccordion">
+                            <div class="accordion-body">
+                                If \(\frac{1}{6}\) does not germinate, the probability that a seed will
+                                germinate is
+                                P\((\text{germinate})=\frac{5}{6}\).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <p>Twelve seeds are sown.</p>
+
+                <div class="accordion" id="accord2">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2">
+                                <p class="mb-0">ii) Calculate the probability that exactly nine of these seeds
+                                    germinate. (3 marks)</p>
+                            </button>
+                        </h2>
+                        <div id="collapseOne2" class="accordion-collapse collapse" data-bs-parent="#accord2">
+                            <div class="accordion-body">
+                                We can see that the number of trials is 12. The number of successes is the
+                                number of seeds which germinate, which is 9.
+                                From part i, the probability of success on a single trial is \(\frac{5}{6}\).
+                                <br>
+                                \(\begin{aligned}
+                                n &= \ 12 \\
+                                k &= \ 9 \\
+                                p & = \ \frac{5}{6} \\
+                                \end{aligned}\)
+
+                                <br>
+                                Substituting these values into the binomial distrbution formula gives
+
+                                \[P(X=9) = \binom{12}{9} \left(\frac{5}{6} \right)^9 \left(1-\frac{5}{6}
+                                \right)^{3} = 0.197.\]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+                                <p class="mb-0">iii) Calculate the probability that at most ten of these seeds
+                                    germinate. (4 marks)</p>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo2" class="accordion-collapse collapse" data-bs-parent="#accord2">
+                            <div class="accordion-body">
+                                The probability that at most 10 seeds germinate is the same the probability that
+                                11 seeds do <b>not</b> germinate plus the probability that 12 seeds do
+                                <b>not</b> germinate.
+                                \(\) Therefore, we have
+                                <br>
+                                <br>
+                                \(
+                                \begin{aligned}
+                                P(X \leq 10) &= \ 1-\big[P(X=11) + P(X=12)\big] \\
+                                &= \ 1- \left[\binom{12}{11} \left(\frac{5}{6}\right)^{11}
+                                \left(1-\frac{5}{6}\right) + \underbrace{\binom{12}{12}}_{=1}
+                                \left(\frac{5}{6}\right)^{12}
+                                \underbrace{\left(1-\frac{5}{6}\right)^0}_{=1}\right] \\
+                                &= \ 1- \big[0.26918 + 0.11216 \big] \\
+                                &= \ 0.619 \\
+                                \end{aligned}
+                                \)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
+                                <p class="mb-0">iv) Find the most likely number of these twelve seeds that will
+                                    germinate. (3 marks)</p>
+                            </button>
+                        </h2>
+                        <div id="collapseThree2" class="accordion-collapse collapse" data-bs-parent="#accord2">
+                            <div class="accordion-body">
+                                Our <b>expected</b> probability is found by multiplying the number of trials by
+                                the probability of success.
+                                \[ E(X) = np = 12\left(\frac{5}{6}\right) = 10\]
+                                We want to test the probabilities around \(X=10\). We calculated \(X=9\) in part
+                                ii, to give a probability of 0.197. We will check \(X=10\) and \(X=11\).
+                                <br>
+                                <br>
+                                \(
+                                \begin{aligned}
+                                P(X=10) &= \ \binom{12}{10} \left(\frac{5}{6} \right)^{10} \left(1-\frac{5}{6}
+                                \right)^{2} = 0.296 \\
+                                P(X=11) &= \ \binom{12}{11} \left(\frac{5}{6} \right)^{11} \left(1-\frac{5}{6}
+                                \right) = 0.269 \\
+                                \end{aligned}
+                                \)
+                                <br>
+                                <br>
+                                where probabilities have been recorded to 3 significant figures.
+                                The largest probability is obtained when \(X=10\). This confirms that \(X=10\)
+                                is the most likely number of 12 seeds to germinate.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <br>
+                    <p>
+                        To summarise, let's check that this is a binomial distribution question.
+                        There are only 2 outcomes - the seed does germinate or the seed does not germinate.
+                        The trials are independent - the outcome of one seed germinating is not affected by
+                        whether or not other seeds have germinated.
+                        The number of trials is fixed - we are told that twelve seeds are sown.
+                        The probability of success remains the same for each trial - we are told that one in
+                        six seeds will not germinate and this remains constant throughout the trial.
+                        Since all conditions are satisfied, we can use the binomial distribution formula to
+                        answer this question.
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="text-center">
             <br>
             <br>
-        <p>Now you're ready to test your knowledge!</p>
-        <p>
-            <a href="./test.html" class="btn btn-primary my-2">Test Your Knowledge</a>
-        </p>
-    </div>
-    </div>
-
-    <!-- <div class="container my-1">
-        <div class="p-3 rounded">
-            <h2> Binomial Theorem</h2>
-            <p class="lead"> The Binomial theorem is given by</p>
-            \[(x+a)^n = \sum_{k=0}^n \binom{n}{k}x^k a^{n-k},\]
-            <p> where </p>
-                    <p>\(n\) = the number of trials </p>
-                    <p>\(k\) = the number of successes  </p>
-                    <p>\(x\) = the probability of success on a single trial  </p>
-                    <p>\(a\) = the probability of failure on a single trial  </p>
+            <p>Now you're ready to test your knowledge!</p>
+            <p>
+                <a href="./test.html" class="btn btn-primary my-2">Test Your Knowledge</a>
+            </p>
         </div>
-    </div> -->
-    </div>
+        <script src="./JS/Triangle.js"></script>
+        <script src="./JS/LearnQuestions.js"></script>
+        <script src="./JS/CoinFlip.js"></script>
+        <script src="JS/Accessibility.js"></script>
 
-    <div id="accessibility-widget" class="accessibility-widget">
-        <button id="toggle-accessibility" class="btn btn-primary">Accessibility Options</button>
-        <div id="accessibility-options" class="accessibility-options d-none">
-          <div class="form-group">
-            <label for="color-theme">Color Theme:</label>
-            <select id="color-theme" class="form-select">
-              <option value="default">Default</option>
-              <option value="dark">Dark</option>
-              <option value="light">Light</option>
-              <option value="dyslexia">Dyslexia-friendly</option>
-            </select>
-          </div>
-          <!-- Rest of the accessibility options -->
-          <div class="form-group">
-            <label for="font-scale">Font Size:</label>
-            <input id="font-scale" type="range" min="1" max="1.5" step="0.001" value="1" class="form-range">
-          </div>
-        </div>
-
-    <script src="./JS/Triangle.js"></script>
-    <script src="./JS/LearnQuestions.js"></script>
-    <script src="./JS/CoinFlip.js"></script>
-    <script src="JS/Accessibility.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -831,8 +1008,28 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-        crossorigin="anonymous"></script>
-    
+        crossorigin="anonymous"></script> -->
+
 </body>
+
+<div id="accessibility-widget" class="accessibility-widget">
+    <button id="toggle-accessibility" class="btn btn-primary">Accessibility Options</button>
+    <div id="accessibility-options" class="accessibility-options d-none">
+        <div class="form-group">
+            <label for="color-theme">Color Theme:</label>
+            <select id="color-theme" class="form-select">
+                <option value="default">Default</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+                <option value="dyslexia">Dyslexia-friendly</option>
+            </select>
+        </div>
+        <!-- Rest of the accessibility options -->
+        <div class="form-group">
+            <label for="font-scale">Font Size:</label>
+            <input id="font-scale" type="range" min="1" max="1.5" step="0.001" value="1" class="form-range">
+        </div>
+    </div>
+</div>
 
 </html>

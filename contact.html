@@ -37,8 +37,8 @@
     <div class="col-md-5 offset-md-1 mb-3">
         <form method="post" enctype="text/plain" class="mb-5" onsubmit="sendEmail(); return false;">
             <br>
-            <br>
-            <br>
+            <!-- <br>
+            <br> -->
           <h5>Contact Us</h5>
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -54,11 +54,29 @@
           </div>
           <button class="btn btn-primary" type="submit">Send</button>
         </form>
+        <!-- <br>
         <br>
         <br>
-        <br>
-        <br>
+        <br> -->
       </div>
+    
+      <div id="accessibility-widget" class="accessibility-widget">
+        <button id="toggle-accessibility" class="btn btn-primary">Accessibility Options</button>
+        <div id="accessibility-options" class="accessibility-options d-none">
+          <div class="form-group">
+            <label for="color-theme">Color Theme:</label>
+            <select id="color-theme" class="form-select">
+              <option value="default">Default</option>
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+              <option value="dyslexia">Dyslexia-friendly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="font-scale">Font Size:</label>
+            <input id="font-scale" type="range" min="1" max="1.5" step="0.001" value="1" class="form-range">
+          </div>
+        </div>
 
     <script>
         function sendEmail() {
@@ -87,35 +105,6 @@
     <script src="JS/Accessibility.js"></script>
 </body>
 
-<footer class="bg-dark text-light py-3 sticky-bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <p>B!NOMIAL</p>
-        </div>
-        <div class="col-md-6 text-md-end">
-          <p>Copyright &copy; 2023</p>
-        </div>
-      </div>
-    </div>
-  </footer>
 
-  <div id="accessibility-widget" class="accessibility-widget">
-    <button id="toggle-accessibility" class="btn btn-primary">Accessibility Options</button>
-    <div id="accessibility-options" class="accessibility-options d-none">
-      <div class="form-group">
-        <label for="color-theme">Color Theme:</label>
-        <select id="color-theme" class="form-select">
-          <option value="default">Default</option>
-          <option value="dark">Dark</option>
-          <option value="light">Light</option>
-          <option value="dyslexia">Dyslexia-friendly</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="font-scale">Font Size:</label>
-        <input id="font-scale" type="range" min="1" max="1.5" step="0.001" value="1" class="form-range">
-      </div>
-    </div>
 
 </html>
