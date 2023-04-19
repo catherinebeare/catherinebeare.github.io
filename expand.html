@@ -146,10 +146,152 @@
                 <iframe width="699" height="393" src="https://www.youtube.com/embed/5OjZWSdxlU0" title="How does Modular Arithmetic work?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            
             </div>
             
-            <p> Permutations and Combinations</p>
+
+            <section class="combinatorics" id="combinatorics">
+
+            <h2> Permutations and Combinations</h2>
+
+            <p>
+                Combinatorics is a branch of mathematics concerned with the study of finite structures. Enumerative combinatorics is an area of combinatorics that deals with counting the number of elements in a finite set. 
+                Let's investigate some of the most common combinatorial problems.
+            </p>
+
+
+            <div class="accordion" id="combAccord">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOneComb" aria-expanded="false" aria-controls="collapseOneComb">
+                            <p class="mb-0">1) 
+                                Given sets \( S_1, S_2, \dots , S_k \) with \(n_1, n_2, \dots , n_k\) elements respectively,
+                                how may \(k\)-tuples are there in \( S_1 \times S_2 \times \dots \times S_k \)?
+                            </p>
+                        </button>
+                    </h2>
+                    <div id="collapseOneComb" class="accordion-collapse collapse" data-bs-parent="#combAccord">
+                        <div class="accordion-body">
+                            Answer: \(n_1 \cdot n_2 \cdot ... \cdot n_k\)
+                            <br>
+                            <p>
+                                There are \(n_1\) ways of choosing the first entry of a \(k\)-tuple in \( S_1 \times S_2 \times \dots \times S_k \).
+                                Then, for each choice of the first entry, there are \(n_2\) possible ways of choosing the second entry.
+                                Then, for each choice of the first and second entries, there are \(n_3\) possible ways of choosing the third entry.
+                                Continuing in this way, we arrive at the answer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwoComb" aria-expanded="false" aria-controls="collapseTwoComb">
+                            <p class="mb-0">2) 
+                                Given a set \(S\) with \(n\) elements, how many \(k\)-tuples without repeated entries are there
+                                in \(\underbrace{S \times S \times \dots \times S}_{k \text{ times}}\)?
+                            </p>
+                        </button>
+                    </h2>
+                    <div id="collapseTwoComb" class="accordion-collapse collapse" data-bs-parent="#combAccord">
+                        <div class="accordion-body"> Answer:
+                            
+                            \(
+                                \frac{n!}{(n-k)!}
+                            \)
+
+                            <p>
+                                There are \(n\) possible ways of choosing the first entry of a \(k\)-tuples in the product of
+                                \(k\) copies of \(S\). But, for each choice of the first entry, there are only
+                                \((n-1)\) possible ways of choosing the second entry (as entries cannot be repeated).
+                                Then, for each of the first and second entries, there are \((n-2)\) possible ways
+                                of choosing the third entry. Continuing in this way, we arrive at the answer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThreeComb" aria-expanded="false" aria-controls="collapseThreeComb">
+                            <p class="mb-0">3) 
+                                Given a set \(S\) with \(n\) elements, how many different subsets of \(k\) elements does
+                                \(S\) have? \((k \leq n)\)
+                            </p>
+                        </button>
+                    </h2>
+                    <div id="collapseThreeComb" class="accordion-collapse collapse" data-bs-parent="#combAccord">
+                        <div class="accordion-body">
+                            <p>
+                                Answer: \( \binom{n}{k} \).
+                                That's right, it's the binomial coefficient!
+                                There are \(n!/(n-k)! \) possible ways of choosing an ordered \(k\)-tuple without
+                                repeated entries from a set with \(n\) elements. On the other hand, given a set of 
+                                \(k\) elements, there are \(k!\) possible ways of arranging them to form an ordered
+                                \(k\)-tuple. Therefore, the total number of subsets of \(S\) with \(k\) elements is
+                                <br>
+                                \[
+                                    \frac{n!}{k!(n-k)!} = \binom{n}{k}.
+                                \]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p>These are generic questions. In practice, we may need to combine some of these to calculate our answer. Let's try a real life example.</p>
+            <div class="container my-1 px-5">
+                <div class="text-bg-light p-5 rounded questionBoxes">
+                    <p class="lead">
+                        Four different dice are rolled.
+                    </p>
+                    <form autocomplete="off">
+                        <p class="lead">
+                            a) In how many outcomes will at least one five appear?
+                        </p>
+                        <div class="row g-3 mb-3 align-items-center">
+                            <div class="col-auto">
+                                <label for="inputpartA" class="col-form-label">Answer = </label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="inputpartA" class="form-control" aria-describedby="HelpInline">
+                            </div>
+                        </div>
+                        <div class="alert d-none" role="alert" id='combBannerA'>
+                            <p><span id="combPartAResult"> </span> 
+                                The number of possible outcomes is \(6^4\). Of them, only \(5^4\) do not contain \(5\).
+                                Thus, the total number of outcomes in which at least one \(5\) appears is \(6^4 - 5^4 = 671.\)
+                                
+                            </p>
+                        </div>
+                        <p class="lead">
+                            b) In how many outcomes will the highest die be a five?
+                        </p>
+                        <div class="row mb-3">
+                            <div class="col-auto">
+                                <p for="inputpartB" class="col-form-label">Answer = </p>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="inputpartB" class="form-control"
+                                    aria-describedby="combinationHelpInline">
+                            </div>
+                        </div>
+                        <div class="alert d-none" role="alert" id='combBannerB'>
+                            <p><span id="combPartBResult"> </span> 
+                                This time \(6\) cannot appear in any of the outcomes. There are \(5^4\) possible
+                                outcomes with this property, of which \(4^4\) do not contain \(5\). Therefore, the number of possibilities
+                                is \(5^4 - 4^4 = 369.\)
+                            </p>
+                        </div>
+    
+                        <div class="btn btn-lg btn-primary" role="button" onclick="verifyCombination()">Submit</div>
+                    </form>
+                </div>
+            </div>
+
             <div class="text-center">
                 <iframe width="699" height="393" src="https://www.youtube.com/embed/XJnIdRXUi7A" title="Permutations and Combinations Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
+
+        </section>
 
             <!-- <p> Deriving \(\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}.\)</p> -->
             

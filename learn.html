@@ -357,8 +357,39 @@
                     </div>
                 </div>
                 <br>
-                <p>There are some interesting patterns in Pascal's triangle involving the location of multiples. To
-                    investigate these patterns, click <a href="expand.html">here.</a></p>
+
+                <div class="accordion" id="binomProof">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseBinomial" aria-expanded="false" aria-controls="collapseBinomial">
+                                <p class="mb-0">
+                                    The binomial coefficients satisfy the identity
+                                    \[
+                                        \binom{n}{k-1}+\binom{n}{k} = \binom{n+1}{k} \text{ for every }1 \leq k \leq n.
+                                    \]
+                                </p>                                    
+                            </button>
+                        </h2>
+                        <div id="collapseBinomial" class="accordion-collapse collapse"
+                            data-bs-parent="#binomProof">
+                            <div class="accordion-body">
+                                <p>Proof:</p>
+                                \[ \begin{aligned}
+                                    \binom{n}{k-1}+\binom{n}{k} &= \ \frac{n!}{(k-1)!\left(n-k+1\right)!} + \frac{n!}{k!\left(n-k\right)!} \\
+                                    &= \ \frac{n!}{(k-1)!\left(n-k\right)!}\left(\frac{1}{n-k+1} + \frac{1}{k}\right) \\ 
+                                    & = \ \frac{n!}{(k-1)!\left(n-k\right)!} \frac{n+1}{(n-k+1)k} \\
+                                    &= \ \frac{(n+1)!}{k!(n+1-k)!} \\
+                                    &= \ \binom{n+1}{k} \\
+                                \end{aligned} \]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    This identity is actually a mathematical representation of how the rows of Pascal's triangle are constructed. 
+                    There are also some interesting patterns in Pascal's triangle. To investigate these patterns, click <a href="expand.html">here.</a>
+                </p>
             </div>
         </div>
 
@@ -617,7 +648,7 @@
                     outcomes is 2
                     (heads then tails, or tails then heads). For more information on combinations and permutations,
                     click
-                    <a href="expand.html">here.</a>
+                    <a href="expand.html#combinatorics">here.</a>
                 </p>
 
 
@@ -695,7 +726,7 @@
             <div class="p-3 rounded">
                 <h2> When to use a Binomial Distribution </h2>
                 <p> There are a number of conditions which need to be satisfied in order to use a binomial distribution.
-                    We can use the mnemonic BINS to help us remember.</p>
+                    We can use the mnemonic <b>BINS</b> to help us remember.</p>
                 <ol>
                     <li>
                         <p><b>B</b>inary number of outcomes. There are 2 possible outcomes - success and failure.</p>
@@ -997,7 +1028,8 @@
                     What is the reason behind the binomial coefficients being the same in these two formulae?
                 </p>
                 <p>
-                    The binomial coefficients are the same due to their <b>combinatorial</b> nature. They represent the number of possible combinations of choosing \(k\) elements from a set of \(n\) elements. 
+                    The binomial coefficients are the same due to their <a href="expand.html#combinatorics"><b>combinatorial</b></a> nature. 
+                    They represent the number of possible combinations of choosing \(k\) elements from a set of \(n\) elements. 
                     However, the context in which they are used differs. 
                 </p>
                 <ul>
@@ -1005,187 +1037,59 @@
                     <li><b>Binomial Distribution:</b> choosing \(k\) successes from \(n\) independent trials. </li>
                 </ul>
                 <p>
-                    In both cases, these coefficients count the ways to distribute or choose elements.
+                    In both cases, these coefficients count the ways to distribute or choose elements. Let's investigate this further using two concrete examples.
                 </p>  
+
                 <p>
-                    Combinatorics is a branch of mathematics concerned with the study of finite structures. Enumerative combinatorics is an area of combinatorics that deals with counting the number of elements in a finite set. 
-                    Let's investigate some of the most common combinatorial problems.
-                </p>
+                    <b>Example 1:</b> The expansion of \((a+b)^5 = (a+b)(a+b)(a+b)(a+b)(a+b)\).
 
+                    <br>
+                    Each term in the expansion represents the number of ways to choose a specific power of
+                    \(a\) and \(b\) such that their sum is equal to 5.
 
-                <div class="accordion" id="combAccord">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOneComb" aria-expanded="false" aria-controls="collapseOneComb">
-                                <p class="mb-0">1) 
-                                    Given sets \( S_1, S_2, \dots , S_k \) with \(n_1, n_2, \dots , n_k\) elements respectively,
-                                    how may \(k\)-tuples are there in \( S_1 \times S_2 \times \dots \times S_k \)?
-                                </p>
-                            </button>
-                        </h2>
-                        <div id="collapseOneComb" class="accordion-collapse collapse" data-bs-parent="#combAccord">
-                            <div class="accordion-body">
-                                Answer: \(n_1 \cdot n_2 \cdot ... \cdot n_k\)
-                                <br>
-                                <p>
-                                    There are \(n_1\) ways of choosing the first entry of a \(k\)-tuple in \( S_1 \times S_2 \times \dots \times S_k \).
-                                    Then, for each choice of the first entry, there are \(n_2\) possible ways of choosing the second entry.
-                                    Then, for each choice of the first and second entries, there are \(n_3\) possible ways of choosing the third entry.
-                                    Continuing in this way, we arrive at the answer.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwoComb" aria-expanded="false" aria-controls="collapseTwoComb">
-                                <p class="mb-0">2) 
-                                    Given a set \(S\) with \(n\) elements, how many \(k\)-tuples without repeated entries are there
-                                    in \(\underbrace{S \times S \times \dots \times S}_{k \text{ times}}\)?
-                                </p>
-                            </button>
-                        </h2>
-                        <div id="collapseTwoComb" class="accordion-collapse collapse" data-bs-parent="#combAccord">
-                            <div class="accordion-body"> Answer:
-                                
-                                \(
-                                    \frac{n!}{(n-k)!}
-                                \)
+                    When we expand this expression, we get the following:
 
-                                <p>
-                                    There are \(n\) possible ways of choosing the first entry of a \(k\)-tuples in the product of
-                                    \(k\) copies of \(S\). But, for each choice of the first entry, there are only
-                                    \((n-1)\) possible ways of choosing the second entry (as entries cannot be repeated).
-                                    Then, for each of the first and second entries, there are \((n-2)\) possible ways
-                                    of choosing the third entry. Continuing in this way, we arrive at the answer.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThreeComb" aria-expanded="false" aria-controls="collapseThreeComb">
-                                <p class="mb-0">3) 
-                                    Given a set \(S\) with \(n\) elements, how many different subsets of \(k\) elements does
-                                    \(S\) have? \((k \leq n)\)
-                                </p>
-                            </button>
-                        </h2>
-                        <div id="collapseThreeComb" class="accordion-collapse collapse" data-bs-parent="#combAccord">
-                            <div class="accordion-body">
-                                <p>
-                                    Answer: \( \binom{n}{k} \).
-                                    That's right, it's the binomial coefficient!
-                                    There are \(n!/(n-k)! \) possible ways of choosing an ordered \(k\)-tuple without
-                                    repeated entries from a set with \(n\) elements. On the other hand, given a set of 
-                                    \(k\) elements, there are \(k!\) possible ways of arranging them to form an ordered
-                                    \(k\)-tuple. Therefore, the total number of subsets of \(S\) with \(k\) elements is
-                                    <br>
-                                    \[
-                                        \frac{n!}{k!(n-k)!} = \binom{n}{k}.
-                                    \]
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    \[ a^5 + 5a^4b + 10a^3b^2 + a^2b^3 + 5ab^4 +b^5. \]
+                    
+                    The coefficients of these terms represent the number of ways to obtain that specific combination.
 
-
+                    <!-- How many ways are there to take 5 \(a\)s all together? There is only 1 way - take 1 \(a\) from each bracket. 
+                    How many ways are there to take 4 \(a\)s and 1 \(b\)? There are 5 ways - take 1 \(b\) from the first bracket or 1 \(b\) from the second bracket or 1 \(b\) from the third bracket and so on.
+                    How many ways are there to take 3 \(a\)s and 2 \(b\)s. There are 10 ways.
+                    Following this logic we can understand the where the binimial coefficients represent. -->
                 
-                <!-- <p>
-                    The connection between these two formulae lies in the combinatorial nature of the binomial coefficients, which represent the number of possible combinations of events. 
-                    In both cases, the binomial coefficients are used to count the number of ways to distribute or choose elements, whether it's powers of variables in a binomial expansion or successes/failures in a binomial distribution context.
-                </p> -->
-
-
+                </p>
                 <br>
-                <p style="color: red"><b>Gareth please help :(</b></p>
-                <div class="accordion" id="binomProof">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseBinomial" aria-expanded="false" aria-controls="collapseBinomial">
-                                <p class="mb-0">
-                                    The binomial coefficients satisfy the identity
-                                    \[
-                                        \binom{n}{k-1}+\binom{n}{k} = \binom{n+1}{k} \text{ for every }1 \leq k \leq n.
-                                    \]
-                                </p>                                    
-                            </button>
-                        </h2>
-                        <div id="collapseBinomial" class="accordion-collapse collapse"
-                            data-bs-parent="#binomProof">
-                            <div class="accordion-body">
-                                <p>Proof:</p>
-                                \[ \begin{aligned}
-                                    \binom{n}{k-1}+\binom{n}{k} &= \ \frac{n!}{(k-1)!\left(n-k+1\right)!} + \frac{n!}{k!\left(n-k\right)!} \\
-                                    &= \ \frac{n!}{(k-1)!\left(n-k\right)!}\left(\frac{1}{n-k+1} + \frac{1}{k}\right) \\ 
-                                    & = \ \frac{n!}{(k-1)!\left(n-k\right)!} \frac{n+1}{(n-k+1)k} \\
-                                    &= \ \frac{(n+1)!}{k!(n+1-k)!} \\
-                                    &= \ \binom{n+1}{k} \\
-                                \end{aligned} \]
-                                <p>
-                                    This is actually a mathematical representation of how the rows of Pascal's triangle are constructed. 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p>
+                    <b>Example 2:</b> Flipping a coin 5 times. 
+                    <!-- How many ways are there to get all heads? There is only one way.
+                    How many ways are there to get heads 4 times and tails once. There are 5 ways - tails the first time only or tails the second time only or tails the third time only and so on...
+                    How many ways are there to get 3 heads and 3 tails? there are 10 ways.
+                    This is the exact same problem as Example 1, which gives the exact same results. -->
+                    <br>
+                    We are considering the different outcomes of flipping a coin 5 times. Each flip can result in either heads (H) or tails (T), and we are interested in counting the different ways of obtaining certain numbers of heads and tails.
 
-                
-                
-            </div>
-        </div>
+                    How are these examples related?
 
-        <div class="container my-1 px-5">
-            <div class="text-bg-light p-5 rounded questionBoxes">
-                <p class="lead">
-                    Four different dice are rolled.
+                    Let's replace \(a\) with heads \((H)\) and \(b\) with tails \((T)\) in Example 1.
+                    Therefore, we are looking at the expansion of \((H+T)^5\).
+
+                    Expanding this gives
+                    \[ H^5 + 5 H^4T + 10H^3T^2 + 10H^2T^3 + 5HT^4 +T^5,\]
+                    where the coefficients of these terms represent the number of ways to obtain a specific combination of heads and tails when flipping a coin 5 times.
+
+                    Thus, the binomial coefficients in the binomial expansion formula (Example 1) are the same as the binomial coefficients in the binomial distribution formula (Example 2),
+                    because they both represent the number of ways to obtain specific combinations of the two terms.
+
+                    In both examples, the coefficients represent the number of ways to choose a specific power of a and b (or H and T), such that their sum is equal to 5.
                 </p>
-                <form autocomplete="off">
-                    <p class="lead">
-                        a) In how many outcomes will at least one five appear?
-                    </p>
-                    <div class="row g-3 mb-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputpartA" class="col-form-label">Answer = </label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="text" id="inputpartA" class="form-control" aria-describedby="HelpInline">
-                        </div>
-                    </div>
-                    <div class="alert d-none" role="alert" id='combBannerA'>
-                        <p><span id="combPartAResult"> </span> 
-                            The number of possible outcomes is \(6^4\). Of them, only \(5^4\) do not contain \(5\).
-                            Thus, the total number of outcomes in which at least one \(5\) appears is \(6^4 - 5^4 = 671.\)
-                            
-                        </p>
-                    </div>
-                    <p class="lead">
-                        b) In how many outcomes will the highest die be a five?
-                    </p>
-                    <div class="row mb-3">
-                        <div class="col-auto">
-                            <p for="inputpartB" class="col-form-label">Answer = </p>
-                        </div>
-                        <div class="col-auto">
-                            <input type="text" id="inputpartB" class="form-control"
-                                aria-describedby="combinationHelpInline">
-                        </div>
-                    </div>
-                    <div class="alert d-none" role="alert" id='combBannerB'>
-                        <p><span id="combPartBResult"> </span> 
-                            This time \(6\) cannot appear in any of the outcomes. There are \(5^4\) possible
-                            outcomes with this property, of which \(4^4\) do not contain \(5\). Therefore, the number of possibilities
-                            is \(5^4 - 4^4 = 369.\)
-                        </p>
-                    </div>
 
-                    <div class="btn btn-lg btn-primary" role="button" onclick="verifyCombination()">Submit</div>
-                </form>
+            
+                <p>
+                    The binomial expansion and binomial distribution share the same binomial coefficients because they are both fundamentally about choosing 
+                    from two possibilities and counting the different ways those possibilities can be combined.
+                </p>
+                <br>
             </div>
         </div>
 
@@ -1198,6 +1102,8 @@
                 <a href="./test.html" class="btn btn-primary my-2">Test Your Knowledge</a>
             </p>
         </div>
+
+
         <script src="./JS/Triangle.js"></script>
         <script src="./JS/LearnQuestions.js"></script>
         <script src="./JS/CoinFlip.js"></script>
