@@ -239,3 +239,19 @@ body.dyslexia .accordion-body {
   border-top: 1px solid rgba(255, 255, 255, 0.125);
 }
 
+body .accordion-button:hover {
+  background-color: var(--bs-accordion-active-bg);
+}
+
+body .accordion-button:not(.collapsed):hover {
+  background-color: var(--bs-accordion-active-bg);
+}
+
+body.light .accordion-button:hover {
+  background-color: var(--bs-accordion-active-bg);
+}
+
+body.light .accordion-button:not(.collapsed):hover {
+  background-color: var(--bs-accordion-active-bg);
+}
+
