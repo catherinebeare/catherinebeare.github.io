@@ -39,16 +39,19 @@
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
     backface-visibility: hidden;
     transition: 2s;
     text-align: center;
-    /* background-color: #f8fd89; */
     
   }
   
+  .flashCard section {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 65%;
+  }
+
   .activeCard {
     transform: rotateX(180deg);
   }

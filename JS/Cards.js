@@ -29,16 +29,13 @@ let cards = [
     },  
     {
     front: "What conditions need to be satisfied in order to use a binomial distribution?",
-    back: "- A fixed number of trials <br><br> - Independent trials <br><br> - Only two outcomes (success or failure) <br><br> - The probability of success remaining unchanged for all trials."
+    back: "- A fixed number of trials <br> - Independent trials <br> - Only two outcomes (success or failure) <br> - The probability of success remaining unchanged for all trials."
     }
     // front: "",
     // back: ""
     // }
   ];
   
-  
-
-
   let currentCard = 1,
     carousel = document.querySelector(".carousel"),
     next = document.querySelector(".next"),
@@ -71,12 +68,12 @@ let cards = [
       front.classList.add("front", "text-bg-dark", "lead", "rounded", "p-2");
       let back = document.createElement("div");
       back.classList.add("back", "text-bg-light", "lead", "rounded", "p-2");
-      front.innerHTML = processString(el.front);
-      back.innerHTML = processString(el.back);
+      front.innerHTML = createDivWithTwoParagraphs("Question", processString(el.front));
+      back.innerHTML = createDivWithTwoParagraphs("Answer", processString(el.back));
       div.appendChild(front);
       div.appendChild(back);
       div.addEventListener("click", function(e) {
-        e.srcElement.parentNode.classList.toggle("activeCard");
+        this.classList.toggle("activeCard");
       });
       carousel.appendChild(div);
     });
@@ -92,34 +89,31 @@ let cards = [
   }
 
   function createDivWithTwoParagraphs(text1, text2) {
-    // Create a new div element
     const div = document.createElement('div');
-  
-    // Create the first paragraph
-    const p1 = document.createElement('p');
+
+    const p1 = document.createElement('h4');
+    p1.classList.add("py-3")
     const p1Text = document.createTextNode(text1);
     p1.appendChild(p1Text);
   
-    // Create the horizontal rule
     const hr = document.createElement('hr');
   
-    // Create the second paragraph
-    const p2 = document.createElement('p');
-    const p2Text = document.createTextNode(text2);
-    p2.appendChild(p2Text);
+    const p2 = document.createElement('section');
+    p2.innerHTML = text2
     div.appendChild(p1);
     div.appendChild(hr);
     div.appendChild(p2);
-    // return "<p><p> Answer <br><hr><br> hey</p></p>";
-    // return `<p>${p1.outerHTML}</p>`;
-    // return p1.outerHTML;
-    // return `${score} ${questionList.length}`;
-    return "<p>Lorem ipsum dolor sit amet, <span style=\"background-color: yellow\">consectetur adipiscing elit.</span></p>";
+
+    return div.innerHTML
   }
 
   next.addEventListener("click", function(e) {
     if (currentCard >= cards.length) {
       currentCard = 1;
+      var elements = document.querySelectorAll('.activeCard');
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("activeCard");
+      }
     } else {
       currentCard++;
     }
